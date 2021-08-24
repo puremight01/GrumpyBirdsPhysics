@@ -6,19 +6,11 @@ ExampleScene::ExampleScene()
 	b2Vec2 gravity(0.0, 10.f);
 	World = new b2World(gravity);
 
-
-	sf::Texture *SolidWoodCube1 = new sf::Texture;
-
-	if (!SolidWoodCube1->loadFromFile("Resources/MapSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png", sf::IntRect(4, 177, 80, 82)))
-	{
-		// error...
-	}
-	SolidWoodCube1->setSmooth(true);
-
+	
 	//tests that the factory can work
 	auto temp = new sf::RectangleShape;
 	dynamic_cast<sf::RectangleShape*>(temp)->setSize(sf::Vector2f(50, 50));
-	dynamic_cast<sf::RectangleShape*>(temp)->setTexture(SolidWoodCube1);
+	dynamic_cast<sf::RectangleShape*>(temp)->setTexture(Textures::GetTextures()->SolidWoodCube3);
 
 	//falling object physics
 	b2BodyDef BodyDef;
@@ -41,7 +33,7 @@ ExampleScene::ExampleScene()
 	//tests that the factory can work
 	auto temp3 = new sf::RectangleShape;
 	dynamic_cast<sf::RectangleShape*>(temp3)->setSize(sf::Vector2f(50, 50));
-	dynamic_cast<sf::RectangleShape*>(temp3)->setTexture(SolidWoodCube1);
+	dynamic_cast<sf::RectangleShape*>(temp3)->setTexture(Textures::GetTextures()->SolidWoodCube4);
 
 	//falling object physics
 	b2BodyDef BodyDef2;

@@ -156,12 +156,14 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Textures.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExampleScene.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Textures.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\MapSprites\ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png" />

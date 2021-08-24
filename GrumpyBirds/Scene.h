@@ -5,6 +5,7 @@
 
 #include<list>
 #include"GameObject.h"
+#include"Textures.h"
 
 //holds all of the information in the scene 
 //created by Jacob Sullivan

@@ -22,6 +22,12 @@ GameObject::GameObject(b2World* World)
 	
 }
 
+GameObject::GameObject(sf::Drawable* Renderable, b2Body* Body)
+{
+	MyRenderable = Renderable;
+	PhysicsBody = Body;
+}
+
 GameObject::~GameObject()
 {
 	delete MyRenderable;

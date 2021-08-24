@@ -22,7 +22,7 @@ public:
 	//renders all of the scene objects
 	void Render(sf::RenderWindow *window);
 
-private:
+protected:
 	//All of the objects in this scene 
 	std::list<GameObject*> SceneObjects;
 

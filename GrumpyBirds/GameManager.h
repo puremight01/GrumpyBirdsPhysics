@@ -3,6 +3,7 @@
 
 //includes needed in this class
 #include"Scene.h"
+#include"ExampleScene.h"
 
 class GameManager
 {

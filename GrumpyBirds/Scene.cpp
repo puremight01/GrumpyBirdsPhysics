@@ -2,11 +2,7 @@
 
 Scene::Scene()
 {
-	
-	
-	b2Vec2 gravity(0.0, 10.f);
-	World = new b2World(gravity);
-	SceneObjects.push_back(new GameObject(World));
+	World = nullptr;
 }
 
 Scene::~Scene()
@@ -15,6 +11,10 @@ Scene::~Scene()
 
 void Scene::Update()
 {
+	if (World == nullptr)
+	{
+		return;
+	}
 	World->Step(1 / 60.f, 8, 3);
 	for (auto i = SceneObjects.begin(); i != SceneObjects.end(); i++)
 	{

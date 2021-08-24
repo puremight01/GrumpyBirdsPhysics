@@ -11,6 +11,9 @@ public:
 	//Creates this object
 	GameObject(b2World* World);
 
+	//Constructor for game object used by factory
+	GameObject(sf::Drawable* Renderable, b2Body* Body);
+
 	//Destroys this object
 	~GameObject();
 	

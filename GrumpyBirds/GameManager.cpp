@@ -3,7 +3,7 @@
 GameManager::GameManager()
 {
 	//creates a empty scene 
-	CurrentScene = new Scene();
+	CurrentScene = (Scene*)new ExampleScene();
 }
 
 GameManager::~GameManager()

@@ -5,7 +5,7 @@ ExampleScene::ExampleScene()
 {
 	b2Vec2 gravity(0.0, 10.f);
 	World = new b2World(gravity);
-
+	
 	
 	//tests that the factory can work
 	auto temp = new sf::RectangleShape;
@@ -23,12 +23,10 @@ ExampleScene::ExampleScene()
 	b2PolygonShape Shape;
 	Shape.SetAsBox((50.f / 2) / 30.0, (50.f / 2) / 30.0);
 	b2FixtureDef FixtureDef;
-	FixtureDef.density = 1.f;
+	FixtureDef.density = 1.0f;
 	FixtureDef.shape = &Shape;
 	temp2->CreateFixture(&FixtureDef);
 	temp2->SetAngularVelocity(0.0f);
-
-	SceneObjects.push_back(new GameObject(temp, temp2));
 
 	//tests that the factory can work
 	auto temp3 = new sf::RectangleShape;
@@ -39,7 +37,7 @@ ExampleScene::ExampleScene()
 	b2BodyDef BodyDef2;
 
 	// creates a body in the world with the position scaled to the world 
-	BodyDef2.position = b2Vec2(70 / 30.0, 675 / 30.0);
+	BodyDef2.position = b2Vec2(1500 / 30.0, 675 / 30.0);
 	BodyDef2.type = b2_dynamicBody;
 	auto temp4 = World->CreateBody(&BodyDef2);
 
@@ -72,4 +70,26 @@ ExampleScene::ExampleScene()
 	
 
 	SceneObjects.push_back(new GameObject(Gshape, gBody));
+
+	//ground
+	sf::RectangleShape* Sshape = new sf::RectangleShape;
+	Sshape->setSize(sf::Vector2f(100, 200));
+	Sshape->setTexture(Textures::GetTextures()->SlingShot);
+	//ground physics
+	b2BodyDef sBodyDef;
+	sBodyDef.position = b2Vec2(100 / 30.0, 650 / 30.0);
+	sBodyDef.type = b2_staticBody;
+	b2Body* sBody = World->CreateBody(&sBodyDef);
+
+	b2PolygonShape sShape;
+	sShape.SetAsBox((200 / 2) / 30.0, (200 / 2) / 30.0);
+	b2FixtureDef sFixtureDef;
+	sFixtureDef.density = 0.f;
+	sFixtureDef.shape = &sShape;
+	sFixtureDef.isSensor = true;
+	sBody->CreateFixture(&sFixtureDef);
+
+
+	SceneObjects.push_back(new GameObject(Sshape, sBody));
+	SceneObjects.push_back(new Bird(temp, temp2, *World, sBody));
 }

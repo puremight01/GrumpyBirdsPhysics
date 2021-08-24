@@ -5,6 +5,7 @@
 
 #include<list>
 #include"GameObject.h"
+#include"Bird.h"
 #include"Textures.h"
 
 //holds all of the information in the scene 
@@ -15,7 +16,7 @@ public:
 	//creates an empty scene
 	//created by Jacob Sullivan
 	Scene();
-
+	
 	//destroys whatever is in the scene
 	//created by Jacob Sullivan
 	~Scene();

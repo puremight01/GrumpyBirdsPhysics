@@ -1,25 +1,10 @@
 #include "GameObject.h"
 
-GameObject::GameObject(b2World* World)
+GameObject::GameObject()
 {
-	//tests that the renderable works
-	MyRenderable = new sf::RectangleShape;
-	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setSize(sf::Vector2f(100, 100));
-	//falling object physics
-	b2BodyDef BodyDef;
-
-	// creates a body in the world with the position scaled to the world 
-	BodyDef.position = b2Vec2(100 / 30.0, 100 / 30.0);
-	BodyDef.type = b2_dynamicBody;
-	PhysicsBody = World->CreateBody(&BodyDef);
-
-	b2PolygonShape Shape;
-	Shape.SetAsBox((100.f / 2) / 30.0, (100.f / 2) / 30.0);
-	b2FixtureDef FixtureDef;
-	FixtureDef.density = 1.f;
-	FixtureDef.shape = &Shape;
-	PhysicsBody->CreateFixture(&FixtureDef);
-	
+	//makes an empty object
+	MyRenderable = nullptr;
+	PhysicsBody = nullptr;
 }
 
 GameObject::GameObject(sf::Drawable* Renderable, b2Body* Body)

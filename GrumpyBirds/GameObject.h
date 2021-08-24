@@ -12,7 +12,7 @@ public:
 
 	//Creates this object
 	//created by Jacob Sullivan
-	GameObject(b2World* World);
+	GameObject();
 
 	//Constructor for game object used by factory
 	//created by Jacob Sullivan
@@ -24,13 +24,13 @@ public:
 	
 	//Updates this object
 	//created by Jacob Sullivan
-	void Update();
+	virtual void Update();
 
 	//Renders this object
 	//created by Jacob Sullivan
 	void Render(sf::RenderWindow* window);
 
-private:
+protected:
 	//this holds the drawable part of the object 
 	//created by Jacob Sullivan
 	sf::Drawable* MyRenderable;

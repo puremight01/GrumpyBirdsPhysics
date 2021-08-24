@@ -16,6 +16,21 @@
     <Filter Include="Resource Files\MapSprites">
       <UniqueIdentifier>{d8f7e85c-f036-436b-9d38-e52344d45cae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Scenes">
+      <UniqueIdentifier>{89d26b13-c659-4216-9b41-91b3eab5aa0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{b4fd679e-0d78-4412-b23c-7379f1f98bd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Birds">
+      <UniqueIdentifier>{ceb6c0ed-d063-4fa2-bcb5-e394e496ee14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Birds">
+      <UniqueIdentifier>{b2899bd8-33fc-459a-90aa-c3204e966a82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\BirdSprites">
+      <UniqueIdentifier>{e6cb6669-9b28-4fd6-a37e-2ecbc4d75ba7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -24,16 +39,22 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ExampleScene.cpp">
+    <ClCompile Include="Textures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Textures.cpp">
+    <ClCompile Include="ExampleScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Bird.cpp">
+      <Filter>Source Files\Birds</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,16 +62,22 @@
     <ClInclude Include="GameManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ExampleScene.h">
+    <ClInclude Include="Textures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Textures.h">
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleScene.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Bird.h">
+      <Filter>Header Files\Birds</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

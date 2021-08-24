@@ -31,5 +31,13 @@ public:
 	sf::Texture* SolidWoodCube3;
 	sf::Texture* SolidWoodCube4;
 
+	//red Grumpy bird and its other faces
+	//created by Jacob Sullivan
+	sf::Texture* RedGrumpyBird1;
+
+	//Slingshot texture
+	//created by Jacob Sullivan
+	sf::Texture* SlingShot;
+
 };
 

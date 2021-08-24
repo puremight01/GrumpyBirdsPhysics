@@ -5,26 +5,34 @@
 #include"Scene.h"
 #include"ExampleScene.h"
 
+//This is the game instance 
+//created by Jacob Sullivan
 class GameManager
 {
 public:
     //creates an empty game instance
+    //created by Jacob Sullivan
     GameManager();
     
     //shuts down the game instance
+    //created by Jacob Sullivan
     ~GameManager();
 
     //updates the scene
+    //created by Jacob Sullivan
     void Update();
 
     //renders the scene
+    //created by Jacob Sullivan
     void Render(sf::RenderWindow *window);
 
     //changes the scene
+    //created by Jacob Sullivan
     void SetScene(Scene* NewScene);
 
 private:
     //holds the current scene
+    //created by Jacob Sullivan
     Scene* CurrentScene;
 
 };

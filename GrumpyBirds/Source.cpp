@@ -1,6 +1,8 @@
 //GameManager
 #include"GameManager.h"
 
+//this is the main thread of the game 
+//created by Jacob Sullivan
 int main()
 {
     //creates a game instance

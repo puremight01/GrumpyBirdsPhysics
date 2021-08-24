@@ -7,7 +7,9 @@ int main()
     GameManager Game;
     
     //window
-    sf::RenderWindow window(sf::VideoMode(1600,900), "SFML and box2D works!");
+    sf::RenderWindow window(sf::VideoMode::getFullscreenModes()[0], "Fullscreen on main display");
+    sf::View MainCamera(sf::Vector2f(800.f, 450.f), sf::Vector2f(1600.f, 900.f));
+    window.setView(MainCamera);
     window.setFramerateLimit(60);
 
     while (window.isOpen())
@@ -21,7 +23,7 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
+      
         //updates the game
         Game.Update();
 

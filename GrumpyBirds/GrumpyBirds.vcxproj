@@ -163,6 +163,9 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Scene.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\MapSprites\ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

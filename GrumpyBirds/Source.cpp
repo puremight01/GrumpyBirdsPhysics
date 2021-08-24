@@ -7,7 +7,7 @@ int main()
     GameManager Game;
     
     //window
-    sf::RenderWindow window(sf::VideoMode(640, 640), "SFML and box2D works!");
+    sf::RenderWindow window(sf::VideoMode(1600,900), "SFML and box2D works!");
     window.setFramerateLimit(60);
 
     while (window.isOpen())

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\MapSprites">
+      <UniqueIdentifier>{d8f7e85c-f036-436b-9d38-e52344d45cae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -44,5 +47,10 @@
     <ClInclude Include="ExampleScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\MapSprites\ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png">
+      <Filter>Resource Files\MapSprites</Filter>
+    </Image>
   </ItemGroup>
 </Project>

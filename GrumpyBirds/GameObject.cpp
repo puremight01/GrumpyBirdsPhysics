@@ -36,8 +36,7 @@ GameObject::~GameObject()
 void GameObject::Update()
 {
 	//this is an exanple of how to update the object
-	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setFillColor(sf::Color::Blue);
-	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setOrigin(50, 50);
+	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setOrigin(dynamic_cast<sf::RectangleShape*>(MyRenderable)->getSize().x/2, dynamic_cast<sf::RectangleShape*>(MyRenderable)->getSize().y/2);
 	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setPosition(PhysicsBody->GetPosition().x * 30, PhysicsBody->GetPosition().y * 30);
 	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setRotation(PhysicsBody->GetAngle() * 180 / b2_pi);
 }

@@ -4,6 +4,65 @@ Textures* Textures::SingleTexture = nullptr;
 
 Textures::Textures()
 {
+    // loads the sphere solid wood texture
+    m_solidWoodSphere[0] = new sf::Texture;
+    if (!m_solidWoodSphere[0]->loadFromFile("Resources/MapSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png", sf::IntRect(88, 417, 76, 76)))
+    {
+        std::cout << "Failed to load m_solidWoodSphere[0]" << std::endl;
+    }
+    m_solidWoodSphere[0]->setSmooth(true);
+    // loads the sphere solid wood texture - slight damage
+    m_solidWoodSphere[1] = new sf::Texture;
+    if (!m_solidWoodSphere[1]->loadFromFile("Resources/MapSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png", sf::IntRect(336, 85, 76, 75)))
+    {
+        std::cout << "Failed to load m_solidWoodSphere[1]" << std::endl;
+    }
+    m_solidWoodSphere[1]->setSmooth(true);
+    // loads the sphere solid wood texture - half damage
+    m_solidWoodSphere[2] = new sf::Texture;
+    if (!m_solidWoodSphere[2]->loadFromFile("Resources/MapSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png", sf::IntRect(413, 85, 76, 75)))
+    {
+        std::cout << "Failed to load m_solidWoodSphere[2]" << std::endl;
+    }
+    m_solidWoodSphere[2]->setSmooth(true);
+    // loads the sphere solid wood texture - very damaged
+    m_solidWoodSphere[3] = new sf::Texture;
+    if (!m_solidWoodSphere[3]->loadFromFile("Resources/MapSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png", sf::IntRect(490, 85, 76, 75)))
+    {
+        std::cout << "Failed to load m_solidWoodSphere[3]" << std::endl;
+    }
+    m_solidWoodSphere[3]->setSmooth(true);
+
+
+    // loads the sphere hollow wood texture
+    m_hollowWoodTriangle[0] = new sf::Texture;
+    if (!m_hollowWoodTriangle[0]->loadFromFile("Resources/MapSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png", sf::IntRect(339, 1, 84, 83)))
+    {
+        std::cout << "Failed to load m_hollowWoodTriangle[0]" << std::endl;
+    }
+    m_hollowWoodTriangle[0]->setSmooth(true);
+    // loads the sphere hollow wood texture - slight damage
+    m_hollowWoodTriangle[1] = new sf::Texture;
+    if (!m_hollowWoodTriangle[1]->loadFromFile("Resources/MapSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png", sf::IntRect(423, 1, 84, 83)))
+    {
+        std::cout << "Failed to load m_hollowWoodTriangle[1]" << std::endl;
+    }
+    m_hollowWoodTriangle[1]->setSmooth(true);
+    // loads the sphere hollow wood texture - half damage
+    m_hollowWoodTriangle[2] = new sf::Texture;
+    if (!m_hollowWoodTriangle[2]->loadFromFile("Resources/MapSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png", sf::IntRect(87, 85, 84, 83)))
+    {
+        std::cout << "Failed to load m_hollowWoodTriangle[2]" << std::endl;
+    }
+    m_hollowWoodTriangle[2]->setSmooth(true);
+    // loads the sphere hollow wood texture - very damaged
+    m_hollowWoodTriangle[3] = new sf::Texture;
+    if (!m_hollowWoodTriangle[3]->loadFromFile("Resources/MapSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_WOOD_1.png", sf::IntRect(87, 169, 84, 83)))
+    {
+        std::cout << "Failed to load m_hollowWoodTriangle[3]" << std::endl;
+    }
+    m_hollowWoodTriangle[3]->setSmooth(true);
+
 
     //loads the solid wood texture
     SolidWoodCube1 = new sf::Texture;

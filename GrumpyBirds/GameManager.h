@@ -30,6 +30,10 @@ public:
     //created by Jacob Sullivan
     void SetScene(Scene* NewScene);
 
+    //// returns pointer to current scene
+    //// created by Naomi Wiggins
+    //Scene* GetScene();
+
 private:
     //holds the current scene
     //created by Jacob Sullivan

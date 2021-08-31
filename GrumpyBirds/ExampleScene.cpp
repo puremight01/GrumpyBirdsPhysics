@@ -6,6 +6,10 @@ ExampleScene::ExampleScene()
 	b2Vec2 gravity(0.0, 10.f);
 	World = new b2World(gravity);
 	
+	// contact listener setup - to check for contact - Naomi Wiggins
+	m_listener = new ContactListener;
+	World->SetContactListener(m_listener);
+	
 	
 	//tests that the factory can work
 	auto temp = new sf::RectangleShape;
@@ -31,25 +35,49 @@ ExampleScene::ExampleScene()
 	//tests that the factory can work
 	auto temp3 = new sf::RectangleShape;
 	dynamic_cast<sf::RectangleShape*>(temp3)->setSize(sf::Vector2f(50, 50));
-	dynamic_cast<sf::RectangleShape*>(temp3)->setTexture(Textures::GetTextures()->SolidWoodCube4);
 
 	//falling object physics
 	b2BodyDef BodyDef2;
 
 	// creates a body in the world with the position scaled to the world 
-	BodyDef2.position = b2Vec2(1500 / 30.0, 675 / 30.0);
+	BodyDef2.position = b2Vec2(1500.0f / 30.0f, 675.0f / 30.0f);
 	BodyDef2.type = b2_dynamicBody;
 	auto temp4 = World->CreateBody(&BodyDef2);
 
-	b2PolygonShape Shape2;
-	Shape2.SetAsBox((50.f / 2) / 30.0, (50.f / 2) / 30.0);
+	b2CircleShape Shape2;
+	Shape2.m_radius = 25.0f / 30.0f;
+
 	b2FixtureDef FixtureDef2;
 	FixtureDef2.density = 1.f;
 	FixtureDef2.shape = &Shape2;
 	temp4->CreateFixture(&FixtureDef2);
 	temp4->SetAngularVelocity(0.0f);
 
-	SceneObjects.push_back(new GameObject(temp3, temp4));
+	SceneObjects.push_back(new Destructable(temp3, temp4, 10.0f, 100.0f, Textures::GetTextures()->m_solidWoodSphere, this));
+
+	// destructable 2
+	//tests that the factory can work
+	auto sfDestruct2 = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(sfDestruct2)->setSize(sf::Vector2f(100, 100));
+	//falling object physics
+	b2BodyDef BodyDefDestruct2;
+	// creates a body in the world with the position scaled to the world 
+	BodyDefDestruct2.position = b2Vec2(850.0f / 30.0f, 350.0f / 30.0f);
+	BodyDefDestruct2.type = b2_dynamicBody;
+	auto Destruct2 = World->CreateBody(&BodyDefDestruct2);
+
+	b2PolygonShape ShapeDestruct2;
+	b2Vec2 points[3] = { b2Vec2(-50.0f/30.0f, -50.0f/30.0f), b2Vec2(0.0f, 50.0f/30.0f), b2Vec2(50.0f/30.0f, -50.0f/30.0f) };
+	ShapeDestruct2.Set(points, 3);
+
+	b2FixtureDef FixtureDefDestruct2;
+	FixtureDefDestruct2.density = 1.f;
+	FixtureDefDestruct2.shape = &ShapeDestruct2;
+	Destruct2->CreateFixture(&FixtureDefDestruct2);
+	Destruct2->SetAngularVelocity(0.0f);
+
+	SceneObjects.push_back(new Destructable(sfDestruct2, Destruct2, 10.0f, 100.0f, Textures::GetTextures()->m_hollowWoodTriangle, this));
+
 
 	//ground
 	sf::RectangleShape* Gshape = new sf::RectangleShape;
@@ -71,11 +99,11 @@ ExampleScene::ExampleScene()
 
 	SceneObjects.push_back(new GameObject(Gshape, gBody));
 
-	//ground
+	//sling shot
 	sf::RectangleShape* Sshape = new sf::RectangleShape;
 	Sshape->setSize(sf::Vector2f(100, 200));
 	Sshape->setTexture(Textures::GetTextures()->SlingShot);
-	//ground physics
+	//slingshot physics
 	b2BodyDef sBodyDef;
 	sBodyDef.position = b2Vec2(100 / 30.0, 650 / 30.0);
 	sBodyDef.type = b2_staticBody;

@@ -30,3 +30,9 @@ void GameManager::SetScene(Scene* NewScene)
 	delete CurrentScene;
 	CurrentScene = NewScene;
 }
+
+//Scene* GameManager::GetScene()
+//{
+//	// returns the current scene
+//	return(CurrentScene);
+//}

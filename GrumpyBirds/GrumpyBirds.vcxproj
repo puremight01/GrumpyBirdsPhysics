@@ -152,6 +152,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp" />
+    <ClCompile Include="ContactListener.cpp" />
+    <ClCompile Include="Destructable.cpp" />
     <ClCompile Include="ExampleScene.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -162,6 +164,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h" />
+    <ClInclude Include="ContactListener.h" />
+    <ClInclude Include="Destructable.h" />
     <ClInclude Include="ExampleScene.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />

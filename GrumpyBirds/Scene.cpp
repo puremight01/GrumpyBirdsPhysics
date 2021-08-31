@@ -21,6 +21,28 @@ void Scene::Update()
 		auto z = *i;
 		z->Update();
 	}
+
+	// clear list of objects to delete by removing from scene then deleting - Naomi Wiggins
+	while (m_objectsToDelete.size() > 0)
+	{
+		GameObject* tempObj = m_objectsToDelete.back();   // set element at back to temp object
+
+		// find object in SceneObject list and get iterator to element
+		std::list<GameObject*>::iterator iter = SceneObjects.begin();
+		for (iter; iter != SceneObjects.end(); iter++)
+		{
+			if (iter._Ptr->_Myval == tempObj) { break; } 
+		}
+
+		// remove element at iter
+		if (iter != SceneObjects.end())
+		{
+			SceneObjects.erase(iter);
+		}
+
+		tempObj->~GameObject();            // destroy temp object
+		m_objectsToDelete.pop_back();      // remove back element
+	}
 }
 
 void Scene::Render(sf::RenderWindow *window)
@@ -30,4 +52,9 @@ void Scene::Render(sf::RenderWindow *window)
 		auto z = *i;
 		z->Render(window);
 	}
+}
+
+void Scene::AddObjectToDeleteList(GameObject* _obj)
+{
+	m_objectsToDelete.push_back(_obj);
 }

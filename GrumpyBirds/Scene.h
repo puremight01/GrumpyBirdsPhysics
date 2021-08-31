@@ -29,10 +29,18 @@ public:
 	//created by Jacob Sullivan
 	void Render(sf::RenderWindow *window);
 
+	// adds object to list of objects to be deleted
+	// created by Naomi Wiggins
+	void AddObjectToDeleteList(GameObject* _obj);
+
 protected:
 	//All of the objects in this scene 
 	//created by Jacob Sullivan
 	std::list<GameObject*> SceneObjects;
+
+	// list of objects to be removed from scene
+	// created by Naomi Wiggins
+	std::list<GameObject*> m_objectsToDelete;
 
 	//The Box2d physics
 	//created by Jacob Sullivan

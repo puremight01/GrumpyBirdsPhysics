@@ -31,7 +31,8 @@ public:
 	sf::Texture* SolidWoodCube3;
 	sf::Texture* SolidWoodCube4;
 
-	sf::Texture* m_solidWoodSphere[4]; // array of solid wood sphere and its damage states - Naomi Wiggins
+	sf::Texture* m_solidWoodSphere[4];    // array of solid wood sphere and its damage states - Naomi Wiggins
+	sf::Texture* m_hollowWoodTriangle[4]; // array of hollow wood triangles and its damage states - Naomi Wiggins
 
 	//red Grumpy bird and its other faces
 	//created by Jacob Sullivan

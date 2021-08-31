@@ -17,7 +17,7 @@ void Bird::Update()
 {
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
-		std::cout << "X: " << sf::Mouse::getPosition(*Globals::window).x << "   Y: " << sf::Mouse::getPosition(*Globals::window).y << std::endl;
+		//std::cout << "X: " << sf::Mouse::getPosition(*Globals::window).x << "   Y: " << sf::Mouse::getPosition(*Globals::window).y << std::endl;
 		CreateMouseJoint((float)sf::Mouse::getPosition(*Globals::window).x / 30.0f, (float)sf::Mouse::getPosition(*Globals::window).y / 30.0f);
 		CreateSlingshotJoint();
 		PhysicsBody->GetPosition();

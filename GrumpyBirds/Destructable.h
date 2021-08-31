@@ -7,14 +7,22 @@
 // Project Dependencies Includes
 // Local Includes
 #include "GameObject.h"
-#include "Scene.h"
+
+// forward declare
+class Scene;
 
 class Destructable : public GameObject
 {
+public:
+	// creates a destrucable object - Naomi Wiggins
 	Destructable(sf::Drawable* Renderable, b2Body* Body, float _strength, float _health, sf::Texture* _textures[4], Scene* _scene);
+	// destructable object destructor - Naomi Wiggins
 	~Destructable();
 
+	// updates drawables and physics components - Naomi Wiggins
 	void Update();
+	// handles impact - Naomi Wiggins
+	void OnImpact(float _force);
 
 private:
 	float m_strength;                // how strong the object is - Naomi Wiggins

@@ -19,12 +19,12 @@ ExampleScene::ExampleScene()
 	b2BodyDef BirdBodyDef;
 
 	// creates a body in the world with the position scaled to the world 
-	BirdBodyDef.position = b2Vec2(50 / 30.0, 750 / 30.0);
+	BirdBodyDef.position = b2Vec2(50.f / 30.f, 750.f / 30.f);
 	BirdBodyDef.type = b2_dynamicBody;
 	auto BirdBody = World->CreateBody(&BirdBodyDef);
 
 	b2PolygonShape BirdHitbox;
-	BirdHitbox.SetAsBox((50.f / 2) / 30.0, (50.f / 2) / 30.0);
+	BirdHitbox.SetAsBox((50.f / 2.f) / 30.f, (50.f / 2.f) / 30.f);
 	b2FixtureDef BirdHitBoxDef;
 	BirdHitBoxDef.density = 1.0f;
 	BirdHitBoxDef.shape = &BirdHitbox;
@@ -84,12 +84,12 @@ ExampleScene::ExampleScene()
 	Gshape->setFillColor(sf::Color::Green);
 	//ground physics
 	b2BodyDef gBodyDef;
-	gBodyDef.position = b2Vec2(800/ 30.0, 800 / 30.0);
+	gBodyDef.position = b2Vec2(800.f / 30.f, 800.f / 30.f);
 	gBodyDef.type = b2_staticBody;
 	b2Body* gBody = World->CreateBody(&gBodyDef);
 
 	b2PolygonShape gShape;
-	gShape.SetAsBox((1600 / 2) / 30.0, (100 / 2) / 30.0);
+	gShape.SetAsBox((1600.f / 2.f) / 30.f, (100.f / 2.f) / 30.f);
 	b2FixtureDef gFixtureDef;
 	gFixtureDef.density = 0.f;
 	gFixtureDef.shape = &gShape;
@@ -104,12 +104,12 @@ ExampleScene::ExampleScene()
 	Sshape->setTexture(Textures::GetTextures()->SlingShot);
 	//slingshot physics
 	b2BodyDef sBodyDef;
-	sBodyDef.position = b2Vec2(100 / 30.0, 650 / 30.0);
+	sBodyDef.position = b2Vec2(100.f / 30.f, 650.f / 30.f);
 	sBodyDef.type = b2_staticBody;
 	b2Body* sBody = World->CreateBody(&sBodyDef);
 
 	b2PolygonShape sShape;
-	sShape.SetAsBox((200 / 2) / 30.0, (200 / 2) / 30.0);
+	sShape.SetAsBox((200.f / 2.f) / 30.f, (200.f / 2.f) / 30.f);
 	b2FixtureDef sFixtureDef;
 	sFixtureDef.density = 0.f;
 	sFixtureDef.shape = &sShape;

@@ -34,11 +34,6 @@ Destructable::Destructable(sf::Drawable* Renderable, b2Body* Body, float _streng
 	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setTexture(m_textureArray[0]);
 }
 
-/*Destructable::~Destructable()
-{
-
-}*/
-
 // handles texture setting and adding object to delete list if nessicary - Naomi Wiggins
 void Destructable::Update()
 {

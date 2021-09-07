@@ -17,7 +17,7 @@ public:
 	// creates a destrucable object - Naomi Wiggins
 	Destructable(sf::Drawable* Renderable, b2Body* Body, float _strength, float _health, sf::Texture* _textures[4], Scene* _scene);
 	// destructable object destructor - Naomi Wiggins
-	~Destructable();
+	~Destructable() {};
 
 	// updates drawables and physics components - Naomi Wiggins
 	void Update();

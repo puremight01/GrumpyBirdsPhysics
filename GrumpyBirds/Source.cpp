@@ -10,7 +10,7 @@ int main()
     GameManager Game;
     
     //window
-    Globals::window = new sf::RenderWindow(sf::VideoMode(1600,900), "Fullscreen on main display");
+    Globals::window = new sf::RenderWindow(sf::VideoMode(1600,900), "GrumpyBirds");
     sf::View MainCamera(sf::Vector2f(800.f, 450.f), sf::Vector2f(1600.f, 900.f));
     Globals::window->setView(MainCamera);
     Globals::window->setFramerateLimit(60);

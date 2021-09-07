@@ -1,6 +1,5 @@
 #include "ExampleScene.h"
 
-
 ExampleScene::ExampleScene()
 {
 	b2Vec2 gravity(0.0, 10.f);

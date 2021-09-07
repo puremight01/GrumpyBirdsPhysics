@@ -38,6 +38,7 @@ void Scene::Update()
 		// remove element at iter
 		if (iter != SceneObjects.end())
 		{
+			iter._Ptr->_Myval->~GameObject();
 			SceneObjects.erase(iter);
 		}
 

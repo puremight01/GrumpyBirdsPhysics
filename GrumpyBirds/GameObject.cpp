@@ -1,3 +1,4 @@
+#include "Globals.h"
 #include "GameObject.h"
 
 GameObject::GameObject()
@@ -16,6 +17,8 @@ GameObject::GameObject(sf::Drawable* Renderable, b2Body* Body)
 GameObject::~GameObject()
 {
 	delete MyRenderable;
+	b2World* gameObjectWorld = PhysicsBody->GetWorld();
+	gameObjectWorld->DestroyBody(PhysicsBody);
 }
 
 void GameObject::Update()

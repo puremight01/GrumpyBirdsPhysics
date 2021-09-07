@@ -31,7 +31,7 @@ void ContactListener::BeginContact(b2Contact* _contact)
 		// calculate force of impact on object A
 		float force = b2Vec2(momentumA - momentumB).Length();
 
-		std::cout << "force on A = " << force << std::endl;
+		//std::cout << "force on A = " << force << std::endl;
 		
 		// cast userData to Destructable and apply force
 		reinterpret_cast<Destructable*>(userDataA)->OnImpact(force);
@@ -43,7 +43,7 @@ void ContactListener::BeginContact(b2Contact* _contact)
 		// calculate force of impact on object B
 		float force = b2Vec2(momentumB - momentumA).Length();
 
-		std::cout << "force on B = " << force << std::endl;
+		//std::cout << "force on B = " << force << std::endl;
 
 		// cast userData to Destructable and apply force
 		reinterpret_cast<Destructable*>(userDataB)->OnImpact(force);

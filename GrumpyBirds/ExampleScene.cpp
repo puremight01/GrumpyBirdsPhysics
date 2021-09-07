@@ -12,29 +12,29 @@ ExampleScene::ExampleScene()
 	
 	
 	//tests that the factory can work
-	auto temp = new sf::RectangleShape;
-	dynamic_cast<sf::RectangleShape*>(temp)->setSize(sf::Vector2f(50, 50));
-	dynamic_cast<sf::RectangleShape*>(temp)->setTexture(Textures::GetTextures()->SolidWoodCube3);
+	auto BirdSprite = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(BirdSprite)->setSize(sf::Vector2f(50, 50));
+	dynamic_cast<sf::RectangleShape*>(BirdSprite)->setTexture(Textures::GetTextures()->SolidWoodCube3);
 
 	//falling object physics
-	b2BodyDef BodyDef;
+	b2BodyDef BirdBodyDef;
 
 	// creates a body in the world with the position scaled to the world 
-	BodyDef.position = b2Vec2(50 / 30.0, 750 / 30.0);
-	BodyDef.type = b2_dynamicBody;
-	auto temp2 = World->CreateBody(&BodyDef);
+	BirdBodyDef.position = b2Vec2(50 / 30.0, 750 / 30.0);
+	BirdBodyDef.type = b2_dynamicBody;
+	auto BirdBody = World->CreateBody(&BirdBodyDef);
 
-	b2PolygonShape Shape;
-	Shape.SetAsBox((50.f / 2) / 30.0, (50.f / 2) / 30.0);
-	b2FixtureDef FixtureDef;
-	FixtureDef.density = 1.0f;
-	FixtureDef.shape = &Shape;
-	temp2->CreateFixture(&FixtureDef);
-	temp2->SetAngularVelocity(0.0f);
+	b2PolygonShape BirdHitbox;
+	BirdHitbox.SetAsBox((50.f / 2) / 30.0, (50.f / 2) / 30.0);
+	b2FixtureDef BirdHitBoxDef;
+	BirdHitBoxDef.density = 1.0f;
+	BirdHitBoxDef.shape = &BirdHitbox;
+	BirdBody->CreateFixture(&BirdHitBoxDef);
+	BirdBody->SetAngularVelocity(0.0f);
 
 	//tests that the factory can work
-	auto temp3 = new sf::RectangleShape;
-	dynamic_cast<sf::RectangleShape*>(temp3)->setSize(sf::Vector2f(50, 50));
+	auto WoodenBoxImage = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(WoodenBoxImage)->setSize(sf::Vector2f(50, 50));
 
 	//falling object physics
 	b2BodyDef BodyDef2;
@@ -42,18 +42,18 @@ ExampleScene::ExampleScene()
 	// creates a body in the world with the position scaled to the world 
 	BodyDef2.position = b2Vec2(1500.0f / 30.0f, 675.0f / 30.0f);
 	BodyDef2.type = b2_dynamicBody;
-	auto temp4 = World->CreateBody(&BodyDef2);
+	auto BodyDefDestruct1 = World->CreateBody(&BodyDef2);
 
 	b2CircleShape Shape2;
 	Shape2.m_radius = 25.0f / 30.0f;
 
-	b2FixtureDef FixtureDef2;
-	FixtureDef2.density = 1.f;
-	FixtureDef2.shape = &Shape2;
-	temp4->CreateFixture(&FixtureDef2);
-	temp4->SetAngularVelocity(0.0f);
+	b2FixtureDef FixtureDefDestruct1;
+	FixtureDefDestruct1.density = 1.f;
+	FixtureDefDestruct1.shape = &Shape2;
+	BodyDefDestruct1->CreateFixture(&FixtureDefDestruct1);
+	BodyDefDestruct1->SetAngularVelocity(0.0f);
 
-	SceneObjects.push_back(new Destructable(temp3, temp4, 10.0f, 100.0f, Textures::GetTextures()->m_solidWoodSphere, this));
+	SceneObjects.push_back(new Destructable(WoodenBoxImage, BodyDefDestruct1, 10.0f, 100.0f, Textures::GetTextures()->m_solidWoodSphere, this));
 
 	// destructable 2
 	//tests that the factory can work
@@ -119,5 +119,5 @@ ExampleScene::ExampleScene()
 
 
 	SceneObjects.push_back(new GameObject(Sshape, sBody));
-	SceneObjects.push_back(new Bird(temp, temp2, *World, sBody));
+	SceneObjects.push_back(new Bird(BirdSprite, BirdBody, *World, sBody));
 }

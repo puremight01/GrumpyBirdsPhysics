@@ -1,7 +1,6 @@
 #ifndef __Bird__
 #define __Bird__
 
-
 #include"GameObject.h"
 #include"Globals.h"
 #include"Textures.h"

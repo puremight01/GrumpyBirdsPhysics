@@ -30,6 +30,9 @@ public:
 	//created by Jacob Sullivan
 	void Render(sf::RenderWindow* window);
 
+	// returns a pointer to the physics body - Naomi Wiggins
+	b2Body* GetPhysicsBody() { return(PhysicsBody); }
+
 protected:
 	//this holds the drawable part of the object 
 	//created by Jacob Sullivan

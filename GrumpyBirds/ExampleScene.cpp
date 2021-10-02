@@ -1,3 +1,4 @@
+#include "Seesaw.h"
 #include "ExampleScene.h"
 
 ExampleScene::ExampleScene()
@@ -102,6 +103,48 @@ ExampleScene::ExampleScene()
 
 	//SceneObjects.push_back(new Destructable(sfDestruct2, Destruct2, 10.0f, 100.0f, Textures::GetTextures()->m_hollowWoodTriangle, this));
 
+	// seesaw object
+	// body 1
+	auto sfSeesaw1 = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(sfSeesaw1)->setSize(sf::Vector2f(50, 50));
+	dynamic_cast<sf::RectangleShape*>(sfSeesaw1)->setTexture(Textures::GetTextures()->m_solidWoodSphere[0]);
+	b2BodyDef BodyDefSeesaw1;
+	BodyDefSeesaw1.position = b2Vec2(400.0f / 30.0f, 725.0f / 30.0f);
+	BodyDefSeesaw1.type = b2_dynamicBody;
+	auto seesawB1 = World->CreateBody(&BodyDefSeesaw1);
+	b2CircleShape ShapeB1;
+	ShapeB1.m_radius = 25.f / 30.f;
+	b2FixtureDef FixtureDefB1;
+	FixtureDefB1.density = 1.f;
+	FixtureDefB1.shape = &ShapeB1;
+	seesawB1->CreateFixture(&FixtureDefB1);
+	seesawB1->SetAngularVelocity(0.0f);
+	auto s1 = new GameObject(sfSeesaw1, seesawB1);
+	SceneObjects.push_back(s1);
+	
+	// body 2
+	auto sfSeesaw2 = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(sfSeesaw2)->setSize(sf::Vector2f(150, 25));
+	dynamic_cast<sf::RectangleShape*>(sfSeesaw2)->setTexture(Textures::GetTextures()->SolidWoodCube3);
+	b2BodyDef BodyDefSeesaw2;
+	BodyDefSeesaw2.position = b2Vec2(400.0f / 30.0f, 687.5f / 30.0f);
+	BodyDefSeesaw2.type = b2_dynamicBody;
+	auto seesawB2 = World->CreateBody(&BodyDefSeesaw2);
+	b2PolygonShape ShapeB2;
+	ShapeB2.SetAsBox(75.f / 30.f, 12.5f / 30.f);
+	b2FixtureDef FixtureDefB2;
+	FixtureDefB2.density = 1.f;
+	FixtureDefB2.shape = &ShapeB2;
+	seesawB2->CreateFixture(&FixtureDefB2);
+	seesawB2->SetAngularVelocity(0.0f);
+	auto s2 = new GameObject(sfSeesaw2, seesawB2);
+	SceneObjects.push_back(s2);
+
+	// seesaw joint
+	auto seesawObj = new Seesaw(s1, s2, b2Vec2(400.f / 30.f, 700.f / 30.f), this);
+	seesawObj->setJointLimits(-1.f * atanf(50.f / 75.f), atanf(50.f / 75.f));
+	auto seesawJoint = World->CreateJoint(seesawObj->GetJointDef());
+	SceneObjects.push_back(seesawObj);
 
 	//ground
 	sf::RectangleShape* Gshape = new sf::RectangleShape;

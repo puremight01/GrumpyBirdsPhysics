@@ -63,6 +63,9 @@
     <ClCompile Include="Destructable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Seesaw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Destructable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Seesaw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

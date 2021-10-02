@@ -40,6 +40,9 @@ void GameObject::Update()
 
 void GameObject::Render(sf::RenderWindow* window)
 {
-	//draws the renderable component
-	window->draw(*this->MyRenderable);
+	if (MyRenderable != nullptr)  // added so that gameobjects can have no sprite but still be updated
+	{
+		//draws the renderable component
+		window->draw(*this->MyRenderable);
+	}
 }

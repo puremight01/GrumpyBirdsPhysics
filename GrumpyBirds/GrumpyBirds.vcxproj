@@ -159,6 +159,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Seesaw.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Textures.cpp" />
   </ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Seesaw.h" />
     <ClInclude Include="Textures.h" />
   </ItemGroup>
   <ItemGroup>

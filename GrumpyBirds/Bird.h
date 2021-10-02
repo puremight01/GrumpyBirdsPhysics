@@ -13,11 +13,17 @@ class Bird :public GameObject
 public:
 	//creates a bird
 	//created by Jacob Sullivan
-	Bird(sf::Drawable* Renderable, b2Body* Body, b2World& World, b2Body* GroundBody);
+	Bird(sf::Drawable* Renderable, b2Body* Body, b2World& World, b2Body* SlingShotBody);
 
+	//creates a blank bird for child classes
+	//created by Jacob Sullivan
+	Bird();
 
+	//destroys the bird
 	~Bird();
 
+	//firing accessor functions
+	//created by Jacob Sullivan
 	void SetFiring(bool value) { Firing = value; };
 	bool GetFiring() {return Firing; };
 
@@ -25,7 +31,7 @@ public:
 	//created by Jacob Sullivan
 	void Update();
 
-private:
+protected:
 	//local variables 
 	//created by Jacob Sullivan
 	b2Body* SlingShotRef;
@@ -36,8 +42,17 @@ private:
 
 	bool Firing = false;
 	bool Fired = false;
+	bool Activated = false;
 
 	float DeathTimer = 0;
+
+	//triggers the bird logic unique to this bird 
+	// created by Jacob Sullivan 
+	void InAirClick();
+
+	//holds the logic unique to this bird 
+	// created by Jacob Sullivan 
+	virtual void ClickFunction();
 
 	//creates a mouse joint at the x,y position 
 	//created by Jacob Sullivan

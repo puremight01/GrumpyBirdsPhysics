@@ -5,7 +5,7 @@
 #include<list>
 #include<queue>
 //#include"GameObject.h"
-#include"Bird.h"
+#include"BlueBird.h"
 #include"Textures.h"
 #include "ContactListener.h"
 #include "Destructable.h"

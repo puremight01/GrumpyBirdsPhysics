@@ -13,6 +13,16 @@ Bird::Bird(sf::Drawable* Renderable, b2Body* Body, b2World& World, b2Body* Sling
 
 }
 
+Bird::Bird()
+{
+	WorldRef = nullptr;
+	SlingShotRef = nullptr;
+	MouseJoint = nullptr;
+	SlingshotJoint = nullptr;
+	MyRenderable = nullptr;
+	PhysicsBody = nullptr;
+}
+
 Bird::~Bird()
 {
 }
@@ -21,13 +31,17 @@ void Bird::Update()
 {
 	if (Fired)
 	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+		{
+			InAirClick();
+		}
 		if (PhysicsBody->GetLinearVelocity().LengthSquared() < 0.01f)
 		{
 			if (DeathTimer == 0)
 			{
 				DeathTimer = clock();
 			}
-			if (DeathTimer != 0 && (clock() - DeathTimer) / CLOCKS_PER_SEC > 2)
+			else if (DeathTimer != 0 && (clock() - DeathTimer) / CLOCKS_PER_SEC > 2)
 			{
 				Firing = false;
 			}
@@ -60,6 +74,20 @@ void Bird::Update()
 		}
 	}
 	GameObject::Update();
+}
+
+void Bird::InAirClick()
+{
+	if (!Activated)
+	{
+		ClickFunction();
+		Activated = true;
+	}
+}
+
+void Bird::ClickFunction()
+{
+	std::cout << "Flight Activation";
 }
 
 void Bird::CreateMouseJoint(float x, float y)

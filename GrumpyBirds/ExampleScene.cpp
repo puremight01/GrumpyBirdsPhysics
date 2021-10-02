@@ -148,7 +148,7 @@ ExampleScene::ExampleScene()
 
 	auto temp = new Bird(BirdSprite, BirdBody, *World, sBody);
 	temp->SetFiring(true);
-	auto temp2 = new Bird(BirdSprite2, BirdBody2, *World, sBody);
+	auto temp2 = new BlueBird(BirdSprite2, BirdBody2, *World, sBody);
 
 	//the queue is a first in first out system.
 	BirdsToFire.push(temp);

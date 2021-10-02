@@ -13,22 +13,51 @@ Bird::Bird(sf::Drawable* Renderable, b2Body* Body, b2World& World, b2Body* Sling
 
 }
 
+Bird::~Bird()
+{
+}
+
 void Bird::Update()
 {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	if (Fired)
 	{
-		//std::cout << "X: " << sf::Mouse::getPosition(*Globals::window).x << "   Y: " << sf::Mouse::getPosition(*Globals::window).y << std::endl;
-		CreateMouseJoint((float)sf::Mouse::getPosition(*Globals::window).x / 30.0f, (float)sf::Mouse::getPosition(*Globals::window).y / 30.0f);
-		CreateSlingshotJoint();
-		PhysicsBody->GetPosition();
+		if (PhysicsBody->GetLinearVelocity().LengthSquared() < 0.01f)
+		{
+			if (DeathTimer == 0)
+			{
+				DeathTimer = clock();
+			}
+			if (DeathTimer != 0 && (clock() - DeathTimer) / CLOCKS_PER_SEC > 2)
+			{
+				Firing = false;
+			}
+		}
 	}
-	else if (MouseJoint != nullptr)
+	else if (Firing)
 	{
-		WorldRef->DestroyJoint(MouseJoint);
-		WorldRef->DestroyJoint(SlingshotJoint);
-		MouseJoint = nullptr;
-		SlingshotJoint = nullptr;
-		PhysicsBody->ApplyForceToCenter(b2Vec2((SlingShotRef->GetTransform().p.x - PhysicsBody->GetTransform().p.x) * 2000, (SlingShotRef->GetTransform().p.y - PhysicsBody->GetTransform().p.y) * 2000), true);
+
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+		{
+			CreateMouseJoint((float)sf::Mouse::getPosition(*Globals::window).x / 30.0f, (float)sf::Mouse::getPosition(*Globals::window).y / 30.0f);
+			CreateSlingshotJoint();
+			PhysicsBody->GetPosition();
+		}
+		else if (MouseJoint != nullptr)
+		{
+			PhysicsBody->SetGravityScale(1);
+			WorldRef->DestroyJoint(MouseJoint);
+			WorldRef->DestroyJoint(SlingshotJoint);
+			MouseJoint = nullptr;
+			SlingshotJoint = nullptr;
+			PhysicsBody->ApplyForceToCenter(b2Vec2((SlingShotRef->GetTransform().p.x - PhysicsBody->GetTransform().p.x) * 2000, (SlingShotRef->GetTransform().p.y - PhysicsBody->GetTransform().p.y) * 2000), true);
+			Fired = true;
+		}
+		else
+		{
+			//move to the slingshot
+			PhysicsBody->SetGravityScale(0);
+			PhysicsBody->SetTransform(PhysicsBody->GetPosition() + 0.01 * (SlingShotRef->GetPosition() - PhysicsBody->GetPosition()), 0);
+		}
 	}
 	GameObject::Update();
 }

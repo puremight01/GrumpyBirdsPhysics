@@ -66,6 +66,9 @@
     <ClCompile Include="ObjectMaker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BlueBird.cpp">
+      <Filter>Source Files\Birds</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="ObjectMaker.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueBird.h">
+      <Filter>Header Files\Birds</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

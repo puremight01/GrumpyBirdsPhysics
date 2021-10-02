@@ -3,6 +3,7 @@
 
 //includes needed in this class
 #include<list>
+#include<queue>
 //#include"GameObject.h"
 #include"Bird.h"
 #include"Textures.h"
@@ -42,6 +43,10 @@ protected:
 	//All of the objects in this scene 
 	//created by Jacob Sullivan
 	std::list<GameObject*> SceneObjects;
+
+	//All of the birds you can use in this scene
+	//created by Jacob Sullivan 
+	std::queue<GameObject*> BirdsToFire;
 
 	// vector of objects to be removed from scene - Naomi Wiggins
 	std::vector<GameObject*> m_objectsToDelete;

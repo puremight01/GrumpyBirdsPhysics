@@ -23,6 +23,22 @@ void Scene::Update()
 		z->Update();
 	}
 
+	if (BirdsToFire.size() > 0 && !dynamic_cast<Bird*>(BirdsToFire.front())->GetFiring())
+	{
+		m_objectsToDelete.push_back(BirdsToFire.front());
+		BirdsToFire.pop();
+		if (BirdsToFire.size() > 0)
+		{
+			dynamic_cast<Bird*>(BirdsToFire.front())->SetFiring(true);
+		}
+		else
+		{
+			std::cout << "Out of Birds";
+		}
+		
+	}
+
+
 	// clear list of objects to delete by removing from scene then deleting - Naomi Wiggins
 	while (m_objectsToDelete.size() > 0)
 	{

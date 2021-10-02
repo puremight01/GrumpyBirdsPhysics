@@ -32,8 +32,29 @@ ExampleScene::ExampleScene()
 	BirdBody->SetAngularVelocity(0.0f);
 
 	//tests that the factory can work
-	auto WoodenBoxImage = new sf::RectangleShape;
-	dynamic_cast<sf::RectangleShape*>(WoodenBoxImage)->setSize(sf::Vector2f(50, 50));
+	auto BirdSprite2 = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(BirdSprite2)->setSize(sf::Vector2f(50, 50));
+	dynamic_cast<sf::RectangleShape*>(BirdSprite2)->setTexture(Textures::GetTextures()->SolidWoodCube3);
+
+	//falling object physics
+	b2BodyDef BirdBodyDef2;
+
+	// creates a body in the world with the position scaled to the world 
+	BirdBodyDef2.position = b2Vec2(150.f / 30.f, 750.f / 30.f);
+	BirdBodyDef2.type = b2_dynamicBody;
+	auto BirdBody2 = World->CreateBody(&BirdBodyDef2);
+
+	b2PolygonShape BirdHitbox2;
+	BirdHitbox2.SetAsBox((50.f / 2.f) / 30.f, (50.f / 2.f) / 30.f);
+	b2FixtureDef BirdHitBoxDef2;
+	BirdHitBoxDef2.density = 1.0f;
+	BirdHitBoxDef2.shape = &BirdHitbox2;
+	BirdBody2->CreateFixture(&BirdHitBoxDef2);
+	BirdBody2->SetAngularVelocity(0.0f);
+
+	//tests that the factory can work
+	/*auto WoodenBoxImage = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(WoodenBoxImage)->setSize(sf::Vector2f(50, 50));*/
 
 	////falling object physics
 	//b2BodyDef BodyDef2;
@@ -124,5 +145,14 @@ ExampleScene::ExampleScene()
 
 
 	SceneObjects.push_back(new GameObject(Sshape, sBody));
-	SceneObjects.push_back(new Bird(BirdSprite, BirdBody, *World, sBody));
+
+	auto temp = new Bird(BirdSprite, BirdBody, *World, sBody);
+	temp->SetFiring(true);
+	auto temp2 = new Bird(BirdSprite2, BirdBody2, *World, sBody);
+
+	//the queue is a first in first out system.
+	BirdsToFire.push(temp);
+	SceneObjects.push_back(temp2);
+	BirdsToFire.push(temp2);
+	SceneObjects.push_back(temp);
 }

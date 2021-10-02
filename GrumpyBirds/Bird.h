@@ -18,6 +18,9 @@ public:
 
 	~Bird();
 
+	void SetFiring(bool value) { Firing = value; };
+	bool GetFiring() {return Firing; };
+
 	//adds on to the update funtionality 
 	//created by Jacob Sullivan
 	void Update();
@@ -30,6 +33,11 @@ private:
 
 	b2MouseJoint* MouseJoint;
 	b2DistanceJoint* SlingshotJoint;
+
+	bool Firing = false;
+	bool Fired = false;
+
+	float DeathTimer = 0;
 
 	//creates a mouse joint at the x,y position 
 	//created by Jacob Sullivan

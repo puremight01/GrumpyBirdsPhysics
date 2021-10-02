@@ -14,7 +14,7 @@ ExampleScene::ExampleScene()
 	//tests that the factory can work
 	auto BirdSprite = new sf::RectangleShape;
 	dynamic_cast<sf::RectangleShape*>(BirdSprite)->setSize(sf::Vector2f(50, 50));
-	dynamic_cast<sf::RectangleShape*>(BirdSprite)->setTexture(Textures::GetTextures()->SolidWoodCube3);
+	dynamic_cast<sf::RectangleShape*>(BirdSprite)->setTexture(Textures::GetTextures()->m_woodCube[3]);
 
 	//falling object physics
 	b2BodyDef BirdBodyDef;
@@ -35,7 +35,7 @@ ExampleScene::ExampleScene()
 	//tests that the factory can work
 	auto BirdSprite2 = new sf::RectangleShape;
 	dynamic_cast<sf::RectangleShape*>(BirdSprite2)->setSize(sf::Vector2f(50, 50));
-	dynamic_cast<sf::RectangleShape*>(BirdSprite2)->setTexture(Textures::GetTextures()->SolidWoodCube3);
+	dynamic_cast<sf::RectangleShape*>(BirdSprite2)->setTexture(Textures::GetTextures()->m_woodCube[3]);
 
 	//falling object physics
 	b2BodyDef BirdBodyDef2;
@@ -107,7 +107,7 @@ ExampleScene::ExampleScene()
 	// body 1
 	auto sfSeesaw1 = new sf::RectangleShape;
 	dynamic_cast<sf::RectangleShape*>(sfSeesaw1)->setSize(sf::Vector2f(50, 50));
-	dynamic_cast<sf::RectangleShape*>(sfSeesaw1)->setTexture(Textures::GetTextures()->m_solidWoodSphere[0]);
+	dynamic_cast<sf::RectangleShape*>(sfSeesaw1)->setTexture(Textures::GetTextures()->m_glassTriangle[3]);
 	b2BodyDef BodyDefSeesaw1;
 	BodyDefSeesaw1.position = b2Vec2(400.0f / 30.0f, 725.0f / 30.0f);
 	BodyDefSeesaw1.type = b2_dynamicBody;
@@ -125,7 +125,7 @@ ExampleScene::ExampleScene()
 	// body 2
 	auto sfSeesaw2 = new sf::RectangleShape;
 	dynamic_cast<sf::RectangleShape*>(sfSeesaw2)->setSize(sf::Vector2f(150, 25));
-	dynamic_cast<sf::RectangleShape*>(sfSeesaw2)->setTexture(Textures::GetTextures()->SolidWoodCube3);
+	dynamic_cast<sf::RectangleShape*>(sfSeesaw2)->setTexture(Textures::GetTextures()->m_glassCube[0]);
 	b2BodyDef BodyDefSeesaw2;
 	BodyDefSeesaw2.position = b2Vec2(400.0f / 30.0f, 687.5f / 30.0f);
 	BodyDefSeesaw2.type = b2_dynamicBody;

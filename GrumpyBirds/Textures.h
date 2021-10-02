@@ -23,16 +23,18 @@ public:
 	//creates the only instance of this class if none exists otherwise returns the one instance 
 	//created by Jacob Sullivan
 	static Textures* GetTextures();
-
+	
 	//Solid wood cube and its damaged states
 	//created by Jacob Sullivan
-	sf::Texture* SolidWoodCube1;
-	sf::Texture* SolidWoodCube2;
-	sf::Texture* SolidWoodCube3;
-	sf::Texture* SolidWoodCube4;
-
-	sf::Texture* m_solidWoodSphere[4];    // array of solid wood sphere and its damage states - Naomi Wiggins
-	sf::Texture* m_hollowWoodTriangle[4]; // array of hollow wood triangles and its damage states - Naomi Wiggins
+	sf::Texture* m_woodCube[4];       
+	sf::Texture* m_woodSphere[4];      // array of solid wood sphere and its damage states - Naomi Wiggins
+	sf::Texture* m_woodTriangle[4];    // array of wood triangle and its damage states - Naomi Wiggins
+	sf::Texture* m_glassCube[4];        // array of solid glass cube and its damage states - Naomi Wiggins
+	sf::Texture* m_glassSphere[4];      // array of solid glass sphere and its damage states - Naomi Wiggins
+	sf::Texture* m_glassTriangle[4];    // array of glass triangle and its damage states - Naomi Wiggins
+	sf::Texture* m_stoneCube[4];        // array of solid stone cube and its damage states - Naomi Wiggins
+	sf::Texture* m_stoneSphere[4];      // array of solid stone sphere and its damage states - Naomi Wiggins
+	sf::Texture* m_stoneTriangle[4];    // array of solid stone triangle and its damage states - Naomi Wiggins
 
 	//red Grumpy bird and its other faces
 	//created by Jacob Sullivan

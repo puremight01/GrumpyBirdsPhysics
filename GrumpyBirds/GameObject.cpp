@@ -12,6 +12,7 @@ GameObject::GameObject(sf::Drawable* Renderable, b2Body* Body)
 {
 	MyRenderable = Renderable;
 	PhysicsBody = Body;
+	
 }
 
 GameObject::~GameObject()
@@ -24,7 +25,15 @@ GameObject::~GameObject()
 void GameObject::Update()
 {
 	//this is an exanple of how to update the object
-	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setOrigin(dynamic_cast<sf::RectangleShape*>(MyRenderable)->getSize().x/2, dynamic_cast<sf::RectangleShape*>(MyRenderable)->getSize().y/2);
+	if (PhysicsBody->GetType() == b2BodyType::b2_staticBody)
+	{
+		//if body is static don't update origin
+		//dynamic_cast<sf::RectangleShape*>(MyRenderable)->setOrigin(dynamic_cast<sf::RectangleShape*>(MyRenderable)->getSize().x / 2, dynamic_cast<sf::RectangleShape*>(MyRenderable)->getSize().y / 2);
+	}
+	else
+	{
+		dynamic_cast<sf::RectangleShape*>(MyRenderable)->setOrigin(dynamic_cast<sf::RectangleShape*>(MyRenderable)->getSize().x / 2, dynamic_cast<sf::RectangleShape*>(MyRenderable)->getSize().y / 2);
+	}
 	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setPosition(PhysicsBody->GetPosition().x * 30, PhysicsBody->GetPosition().y * 30);
 	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setRotation(PhysicsBody->GetAngle() * 180 / b2_pi);
 }

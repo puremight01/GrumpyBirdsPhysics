@@ -66,8 +66,8 @@ void Bird::CreateSlingshotJoint()
 		SlingshotJointDef->Initialize(PhysicsBody, SlingShotRef, PhysicsBody->GetTransform().p, SlingShotRef->GetTransform().p);
 
 		SlingshotJointDef->minLength = 0.1f;
-		SlingshotJointDef->length = 1.0f;
-		SlingshotJointDef->maxLength = 2.0f;
+		SlingshotJointDef->length = 1.5f;
+		SlingshotJointDef->maxLength = 3.0f;
 
 		//SlingshotJointDef->damping = 10;
 		//SlingshotJointDef->stiffness = 75.0f;

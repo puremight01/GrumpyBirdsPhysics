@@ -81,7 +81,8 @@ ExampleScene::ExampleScene()
 	//ground
 	sf::RectangleShape* Gshape = new sf::RectangleShape;
 	Gshape->setSize(sf::Vector2f(1600, 100));
-	Gshape->setFillColor(sf::Color::Green);
+	Gshape->setFillColor(sf::Color::Green); 
+	Gshape->setOrigin(sf::Vector2f(800, 50));
 	//ground physics
 	b2BodyDef gBodyDef;
 	gBodyDef.position = b2Vec2(800.f / 30.f, 800.f / 30.f);
@@ -102,14 +103,15 @@ ExampleScene::ExampleScene()
 	sf::RectangleShape* Sshape = new sf::RectangleShape;
 	Sshape->setSize(sf::Vector2f(100, 200));
 	Sshape->setTexture(Textures::GetTextures()->SlingShot);
+	Sshape->setOrigin(sf::Vector2f(50.0f, 020.0f));
 	//slingshot physics
 	b2BodyDef sBodyDef;
-	sBodyDef.position = b2Vec2(100.f / 30.f, 650.f / 30.f);
+	sBodyDef.position = b2Vec2(100.f / 30.f, 570.f / 30.f);
 	sBodyDef.type = b2_staticBody;
 	b2Body* sBody = World->CreateBody(&sBodyDef);
 
 	b2PolygonShape sShape;
-	sShape.SetAsBox((200.f / 2.f) / 30.f, (200.f / 2.f) / 30.f);
+	sShape.SetAsBox((100.f / 2.f) / 30.f, (200.f / 2.f) / 30.f);
 	b2FixtureDef sFixtureDef;
 	sFixtureDef.density = 0.f;
 	sFixtureDef.shape = &sShape;

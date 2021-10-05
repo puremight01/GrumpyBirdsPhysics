@@ -121,3 +121,143 @@ GameObject* ObjectMaker::DesObj(ObjectType type, ObjectMat mat, Scene* scene, sf
 
 
 }
+
+
+GameObject* ObjectMaker::StaticObj(ObjectType type, sf::Texture* texture, Scene* scene, sf::Vector2f position, sf::Vector2f size)
+{
+	// drawable / display setup
+	auto objSprite = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(objSprite)->setSize(size);
+	dynamic_cast<sf::RectangleShape*>(objSprite)->setTexture(texture);
+
+	// physics body general setup
+	b2BodyDef objBodyDef;
+	objBodyDef.position = b2Vec2(position.x / 30.f, position.y / 30.f);
+	objBodyDef.type = b2_staticBody;
+	auto objBody = scene->World->CreateBody(&objBodyDef);
+
+	b2FixtureDef objFixtureDef;
+	objFixtureDef.density = 0.f;
+
+	switch (type)
+	{
+	case ObjectType::Cube:
+	{
+		// physics body shape setup
+		b2PolygonShape objBodyShape;
+		objBodyShape.SetAsBox(size.x / 2.f / 30.f, size.y / 2.f / 30.f);
+		objFixtureDef.shape = &objBodyShape;
+		objBody->CreateFixture(&objFixtureDef);
+		objBody->SetAngularVelocity(0.f);
+
+		return(new GameObject(objSprite, objBody));
+	}
+	case ObjectType::Triangle:
+	{
+		// physics body shape setup
+		b2PolygonShape objBodyShape;
+		b2Vec2 points[3] = { b2Vec2(size.x / -2.f / 30.f, size.y / 2.f / 30.f), b2Vec2(0.f, size.y / -2.f / 30.f), b2Vec2(size.x / 2.f / 30.f, size.y / 2.f / 30.f) };
+		objBodyShape.Set(points, 3);
+		objFixtureDef.shape = &objBodyShape;
+		objBody->CreateFixture(&objFixtureDef);
+		objBody->SetAngularVelocity(0.f);
+
+		return(new GameObject(objSprite, objBody));
+	}
+	case ObjectType::Circle:
+	{
+		// physics body shape setup
+		b2CircleShape objBodyShape;
+		objBodyShape.m_radius = (size.x > size.y ? size.x / 2.f / 30.f : size.y / 2.f / 30.f);
+		objFixtureDef.shape = &objBodyShape;
+		objBody->CreateFixture(&objFixtureDef);
+		objBody->SetAngularVelocity(0.f);
+
+		return(new GameObject(objSprite, objBody));
+	}
+	default:
+	{
+		scene->World->DestroyBody(objBody);
+		return(nullptr);
+	}
+	}
+}
+
+
+GameObject* ObjectMaker::BirdObj(BirdShape shape, Scene* scene, sf::Vector2f position, GameObject* SlingShotObject)
+{
+	// drawable / display general setup
+	auto birdSprite = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(birdSprite)->setSize(sf::Vector2f(50.f, 50.f));
+
+	// physics body general setup
+	b2BodyDef birdBodyDef;
+	birdBodyDef.position = b2Vec2(position.x / 30.f, position.y / 30.f);
+	birdBodyDef.type = b2_dynamicBody;
+	auto birdBody = scene->World->CreateBody(&birdBodyDef);
+	birdBody->SetAngularVelocity(0.f);
+
+	b2FixtureDef birdFixtureDef;
+	birdFixtureDef.density = 1.f;
+
+	switch (shape)
+	{
+	case BirdShape::Circle:
+	{
+		// drawable shape setup
+		dynamic_cast<sf::RectangleShape*>(birdSprite)->setTexture(Textures::GetTextures()->RedGrumpyBird1);
+
+		// physics body shape setup
+		b2CircleShape birdBodyShape;
+		birdBodyShape.m_radius = 25.f / 30.f;
+		birdFixtureDef.shape = &birdBodyShape;
+		birdBody->CreateFixture(&birdFixtureDef);
+
+		return(new Bird(birdSprite, birdBody, *scene->World, SlingShotObject->GetPhysicsBody()));
+	}
+	case BirdShape::Triangle:
+	{
+		// drawable shape setup
+		dynamic_cast<sf::RectangleShape*>(birdSprite)->setTexture(Textures::GetTextures()->YellowGrumpyBird);
+
+		// physics body shape setup
+		b2PolygonShape birdBodyShape;
+		b2Vec2 points[3] = { b2Vec2(-25.f / 30.f, 25.f / 30.f), b2Vec2(0.f, -25.f / 30.f), b2Vec2(25.f / 30.f, 25.f / 30.f) };
+		birdBodyShape.Set(points, 3);
+		birdFixtureDef.shape = &birdBodyShape;
+		birdBody->CreateFixture(&birdFixtureDef);
+
+		return(new Bird(birdSprite, birdBody, *scene->World, SlingShotObject->GetPhysicsBody()));
+	}
+	default:
+	{
+		scene->World->DestroyBody(birdBody);
+		return(nullptr);
+	}
+	}
+}
+
+
+GameObject* ObjectMaker::PigObj(Scene* scene, sf::Vector2f position, sf::Vector2f size, float strength, float health)
+{
+	// drawable / display general setup
+	auto pigSprite = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(pigSprite)->setSize(size);
+
+	// physics body setup
+	b2BodyDef pigBodyDef;
+	pigBodyDef.position = b2Vec2(position.x / 30.f, position.y / 30.f);
+	pigBodyDef.type = b2_dynamicBody;
+	auto pigBody = scene->World->CreateBody(&pigBodyDef);
+	pigBody->SetAngularVelocity(0.f);
+
+	b2CircleShape pigBodyShape;
+	pigBodyShape.m_radius = (size.x > size.y ? size.x / 2.f / 30.f : size.y / 2.f / 30.f);
+
+	b2FixtureDef pigFixtureDef;
+	pigFixtureDef.shape = &pigBodyShape;
+	pigFixtureDef.density = 1.f;
+	pigBody->CreateFixture(&pigFixtureDef);
+
+	return(new Pig(pigSprite, pigBody, strength, health, scene));
+}

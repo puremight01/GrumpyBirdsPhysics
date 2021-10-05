@@ -270,9 +270,17 @@ Textures::Textures()
     RedGrumpyBird1 = new sf::Texture;
     if (!RedGrumpyBird1->loadFromFile("Resources/BirdSprites/ANGRY_BIRDS_RIO_INGAME_BIRDS_1.png", sf::IntRect(344, 606, 62, 60)))
     {
-        std::cout << "Failed to load SolidWoodCube4" << std::endl;
+        std::cout << "Failed to load RedGrumpyBird1" << std::endl;
     }
     RedGrumpyBird1->setSmooth(true);
+
+    // loads the Yellow Bird normal texture
+    YellowGrumpyBird = new sf::Texture;
+    if (!YellowGrumpyBird->loadFromFile("Resources/BirdSprites/ANGRY_BIRDS_RIO_INGAME_BIRDS_1.png", sf::IntRect(617, 390, 73, 67)))
+    {
+        std::cout << "Failed to load YellowGrumpyBird" << std::endl;
+    }
+    YellowGrumpyBird->setSmooth(true);
 
     //loads the Slingshot Texture
     SlingShot = new sf::Texture;

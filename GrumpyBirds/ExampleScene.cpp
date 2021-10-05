@@ -1,4 +1,4 @@
-#include "Seesaw.h"
+(#include "Seesaw.h"
 #include "ExampleScene.h"
 
 ExampleScene::ExampleScene()
@@ -56,9 +56,18 @@ ExampleScene::ExampleScene()
 	
 
 	ObjectMaker SirMakeALot;
-	SceneObjects.push_back(SirMakeALot.DesObj(Circle, Wood, this, sf::Vector2f(1500, 675), sf::Vector2f(50, 50)));
-	SceneObjects.push_back(SirMakeALot.DesObj(Triangle, Wood, this, sf::Vector2f(850, 350), sf::Vector2f(100, 100)));
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Circle, ObjectMat::Stone, this, sf::Vector2f(1500, 775), sf::Vector2f(50, 50)));
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Circle, ObjectMat::Stone, this, sf::Vector2f(1450, 775), sf::Vector2f(50, 50)));
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Circle, ObjectMat::Stone, this, sf::Vector2f(1400, 775), sf::Vector2f(50, 50)));
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Circle, ObjectMat::Stone, this, sf::Vector2f(1350, 775), sf::Vector2f(50, 50)));
 
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Cube, ObjectMat::Wood, this, sf::Vector2f(1475, 725), sf::Vector2f(100, 25)));
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Cube, ObjectMat::Wood, this, sf::Vector2f(1375, 725), sf::Vector2f(100, 25)));
+															    
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Cube, ObjectMat::Glass, this, sf::Vector2f(1475, 625), sf::Vector2f(25, 100)));
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Cube, ObjectMat::Glass, this, sf::Vector2f(1375, 625), sf::Vector2f(25, 100)));
+
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Triangle, ObjectMat::Glass, this, sf::Vector2f(1425, 400), sf::Vector2f(250, 100)));
 	
 
 	// seesaw object

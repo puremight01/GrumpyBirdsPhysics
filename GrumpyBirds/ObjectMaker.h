@@ -4,8 +4,8 @@
 
 #include"Destructable.h"
 
-enum ObjectType { Cube, Triangle, Circle};
-enum ObjectMat { Glass, Wood, Stone };
+enum class ObjectType { Cube, Triangle, Circle};
+enum class ObjectMat { Glass, Wood, Stone };
 
 class ObjectMaker
 {
@@ -13,8 +13,10 @@ public:
 	//constructor
 	ObjectMaker();
 
-	//creates and returns a pointer to a destructable game object
+	//creates and returns a pointer to a destructable game object - Jacob Sullivan
 	GameObject* DesObj(ObjectType type, ObjectMat mat, Scene* scene, sf::Vector2f position, sf::Vector2f size);
+
+	//GameObject* StaticObj()
 
 
 };

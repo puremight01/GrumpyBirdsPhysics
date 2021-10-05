@@ -3,7 +3,9 @@
 GameManager::GameManager()
 {
 	//creates a empty scene 
-	CurrentScene = (Scene*)new ExampleScene();
+	SceneNumber = 0;
+	CurrentScene = nullptr;
+
 }
 
 GameManager::~GameManager()
@@ -14,6 +16,10 @@ GameManager::~GameManager()
 
 void GameManager::Update()
 {
+	if (Pig::GetPigCount() == 0)
+	{
+		SetScene(NextScene());
+	}
 	//tells the current scene to update
 	CurrentScene->Update();
 }
@@ -29,6 +35,21 @@ void GameManager::SetScene(Scene* NewScene)
 	//delete the old scene from the heap moving the pointer to the new one
 	delete CurrentScene;
 	CurrentScene = NewScene;
+}
+
+Scene* GameManager::NextScene()
+{
+	SceneNumber++;
+	switch (SceneNumber)
+	{
+	case 1:
+		return (Scene*)new ExampleScene();
+	case 2:
+		return (Scene*)new ExampleScene();
+	default:
+		break;
+	}
+	return nullptr;
 }
 
 //Scene* GameManager::GetScene()

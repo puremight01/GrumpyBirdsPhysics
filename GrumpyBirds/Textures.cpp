@@ -306,7 +306,7 @@ Textures::Textures()
     m_pig[1]->setSmooth(true);
     // loads texture - half damage
     m_pig[2] = new sf::Texture;
-    if (!m_pig[2]->loadFromFile("Resources/BirdSprites/INGAME_BIRDS_1.png", sf::IntRect(526, 424, 86, 86)))
+    if (!m_pig[2]->loadFromFile("Resources/BirdSprites/INGAME_BIRDS_1.png", sf::IntRect(526, 340, 86, 86)))
     {
         std::cout << "Failed to load m_pig[2]" << std::endl;
     }

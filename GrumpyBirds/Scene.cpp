@@ -67,7 +67,7 @@ void Scene::Update()
 
 		m_objectsToDelete.pop_back();      // remove back element
 	}
-	std::cout << Pig::GetPigCount() << std::endl;
+	
 }
 
 void Scene::Render(sf::RenderWindow *window)

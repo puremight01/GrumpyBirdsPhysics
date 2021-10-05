@@ -70,7 +70,7 @@ ExampleScene::ExampleScene()
 	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Triangle, ObjectMat::Glass, this, sf::Vector2f(1425,525), sf::Vector2f(200, 100)));
 
 
-	SceneObjects.push_back(SirMakeALot.PigObj(this, sf::Vector2f(1425, 700), sf::Vector2f(50, 50),5,25));
+	SceneObjects.push_back(SirMakeALot.PigObj(this, sf::Vector2f(1125, 600), sf::Vector2f(50, 50),5,25));
 
 	// seesaw object
 	// body 1

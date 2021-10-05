@@ -54,12 +54,20 @@ void Scene::Update()
 		// remove element at iter
 		if (iter != SceneObjects.end())
 		{
-			iter._Ptr->_Myval->~GameObject();
+			if (nullptr != dynamic_cast<Pig*>(iter._Ptr->_Myval))
+			{
+				delete dynamic_cast<Pig*>(iter._Ptr->_Myval);
+			}
+			else
+			{
+				iter._Ptr->_Myval->~GameObject();
+			}
 			SceneObjects.erase(iter);
 		}
 
 		m_objectsToDelete.pop_back();      // remove back element
 	}
+	std::cout << Pig::GetPigCount() << std::endl;
 }
 
 void Scene::Render(sf::RenderWindow *window)

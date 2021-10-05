@@ -12,7 +12,7 @@ public:
     Pig(sf::Drawable* Renderable, b2Body* Body, float _strength, float _health, Scene* _scene);
     ~Pig();
 
-    int GetPigCount();
+    static int GetPigCount();
 private:
     static int PigCount;
 };

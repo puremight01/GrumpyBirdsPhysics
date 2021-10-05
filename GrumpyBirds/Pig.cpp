@@ -34,6 +34,7 @@ Pig::Pig(sf::Drawable* Renderable, b2Body* Body, float _strength, float _health,
 Pig::~Pig()
 {
 	//decrease pig count
+	std::cout << "DONE";
 	PigCount--;
 }
 

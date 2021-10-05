@@ -5,6 +5,7 @@
 
 #include"Destructable.h"
 #include "Bird.h"
+#include "Pig.h"
 
 enum class ObjectType { Cube, Triangle, Circle};
 enum class ObjectMat { Glass, Wood, Stone };
@@ -24,7 +25,9 @@ public:
 
 	// creates and returns a pointer to a bird object - Naomi Wiggins
 	GameObject* BirdObj(BirdShape shape, Scene* scene, sf::Vector2f position, GameObject* SlingShotObject);
-	GameObject* EnemyObject();
+	
+	// creates and returns a pointer to a pig object - Naomi Wiggins
+	GameObject* PigObj(Scene* scene, sf::Vector2f position, sf::Vector2f size, float strength, float health);
 
 
 };

@@ -236,3 +236,28 @@ GameObject* ObjectMaker::BirdObj(BirdShape shape, Scene* scene, sf::Vector2f pos
 	}
 	}
 }
+
+
+GameObject* ObjectMaker::PigObj(Scene* scene, sf::Vector2f position, sf::Vector2f size, float strength, float health)
+{
+	// drawable / display general setup
+	auto pigSprite = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(pigSprite)->setSize(size);
+
+	// physics body setup
+	b2BodyDef pigBodyDef;
+	pigBodyDef.position = b2Vec2(position.x / 30.f, position.y / 30.f);
+	pigBodyDef.type = b2_dynamicBody;
+	auto pigBody = scene->World->CreateBody(&pigBodyDef);
+	pigBody->SetAngularVelocity(0.f);
+
+	b2CircleShape pigBodyShape;
+	pigBodyShape.m_radius = (size.x > size.y ? size.x / 2.f / 30.f : size.y / 2.f / 30.f);
+
+	b2FixtureDef pigFixtureDef;
+	pigFixtureDef.shape = &pigBodyShape;
+	pigFixtureDef.density = 1.f;
+	pigBody->CreateFixture(&pigFixtureDef);
+
+	return(new Pig(pigSprite, pigBody, strength, health, scene));
+}

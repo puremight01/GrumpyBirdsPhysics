@@ -57,7 +57,7 @@ GameObject* ObjectMaker::DesObj(ObjectType type, ObjectMat mat, Scene* scene, sf
 		auto Body = scene->World->CreateBody(&BodyDef);
 
 		b2PolygonShape Shape;
-		b2Vec2 points[3] = { b2Vec2(size.x / -2.f / 30.0f, size.y / -2.f / 30.0f), b2Vec2(0.0f, size.y / 2.f / 30.0f), b2Vec2(size.x / 2.f / 30.0f, size.y / -2.f / 30.0f) };
+		b2Vec2 points[3] = { b2Vec2(size.x / -2.f / 30.0f, size.y / 2.f / 30.0f), b2Vec2(0.0f, size.y / -2.f / 30.0f), b2Vec2(size.x / 2.f / 30.0f, size.y / 2.f / 30.0f) };
 		Shape.Set(points, 3);
 
 		b2FixtureDef FixtureDef;

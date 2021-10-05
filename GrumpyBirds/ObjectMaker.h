@@ -1,4 +1,5 @@
 #pragma once
+
 #ifndef __ObjectMaker__
 #define __ObjectMaker__
 

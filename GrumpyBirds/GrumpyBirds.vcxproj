@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp" />
+    <ClCompile Include="Pig.cpp" />
     <ClCompile Include="YellowBird.cpp" />
     <ClCompile Include="ContactListener.cpp" />
     <ClCompile Include="Destructable.cpp" />
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h" />
+    <ClInclude Include="Pig.h" />
     <ClInclude Include="YellowBird.h" />
     <ClInclude Include="ContactListener.h" />
     <ClInclude Include="Destructable.h" />

@@ -16,6 +16,8 @@ class Destructable : public GameObject
 public:
 	// creates a destrucable object - Naomi Wiggins
 	Destructable(sf::Drawable* Renderable, b2Body* Body, float _strength, float _health, sf::Texture* _textures[4], Scene* _scene);
+	//creates an empty destructable object for inheritance - Jacob Sullivan
+	Destructable();
 	// destructable object destructor - Naomi Wiggins
 	~Destructable() {};
 
@@ -24,7 +26,7 @@ public:
 	// handles impact - Naomi Wiggins
 	void OnImpact(float _force);
 
-private:
+protected:
 	float m_strength;                // how strong the object is - Naomi Wiggins
 	float m_maxHealth;               // the maximum health the object has - Naomi Wiggins
 	float m_currentHealth;           // current health of object - how close to death - Naomi Wiggins

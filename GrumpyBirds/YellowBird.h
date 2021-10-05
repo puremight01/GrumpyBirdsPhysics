@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef __YellowBird__
+#define __YellowBird__
+
 #include "Bird.h"
 class YellowBird :
     public Bird
@@ -12,3 +16,4 @@ private:
     void ClickFunction();
 };
 
+#endif

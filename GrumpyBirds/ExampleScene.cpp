@@ -1,4 +1,4 @@
-(#include "Seesaw.h"
+#include "Seesaw.h"
 #include "ExampleScene.h"
 
 ExampleScene::ExampleScene()
@@ -67,7 +67,7 @@ ExampleScene::ExampleScene()
 	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Cube, ObjectMat::Glass, this, sf::Vector2f(1475, 625), sf::Vector2f(25, 100)));
 	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Cube, ObjectMat::Glass, this, sf::Vector2f(1375, 625), sf::Vector2f(25, 100)));
 
-	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Triangle, ObjectMat::Glass, this, sf::Vector2f(1425, 400), sf::Vector2f(250, 100)));
+	SceneObjects.push_back(SirMakeALot.DesObj(ObjectType::Triangle, ObjectMat::Glass, this, sf::Vector2f(1425,525), sf::Vector2f(200, 100)));
 	
 
 	// seesaw object

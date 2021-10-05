@@ -1,4 +1,4 @@
-(#include "Seesaw.h"
+#include "Seesaw.h"
 #include "ExampleScene.h"
 
 ExampleScene::ExampleScene()

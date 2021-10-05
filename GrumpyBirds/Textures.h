@@ -36,6 +36,7 @@ public:
 	sf::Texture* m_stoneSphere[4];      // array of solid stone sphere and its damage states - Naomi Wiggins
 	sf::Texture* m_stoneTriangle[4];    // array of solid stone triangle and its damage states - Naomi Wiggins
 
+	sf::Texture* m_pig[4];  // array of pig and its damage states - Jacob Sullivan
 	//red Grumpy bird and its other faces
 	//created by Jacob Sullivan
 	sf::Texture* RedGrumpyBird1;

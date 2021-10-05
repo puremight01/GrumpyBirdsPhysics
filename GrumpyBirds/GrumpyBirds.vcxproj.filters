@@ -72,6 +72,9 @@
     <ClCompile Include="Seesaw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Pig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files\Birds</Filter>
     </ClInclude>
     <ClInclude Include="Seesaw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

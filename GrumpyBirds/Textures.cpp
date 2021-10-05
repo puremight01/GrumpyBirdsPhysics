@@ -289,6 +289,32 @@ Textures::Textures()
         std::cout << "Failed to load SolidWoodCube4" << std::endl;
     }
     SlingShot->setSmooth(true);
+
+    // loads texture - no damage
+    m_pig[0] = new sf::Texture;
+    if (!m_pig[0]->loadFromFile("Resources/BirdSprites/INGAME_BIRDS_1.png", sf::IntRect(355, 341, 86, 86)))
+    {
+        std::cout << "Failed to load m_pig[0]" << std::endl;
+    }
+    m_pig[0]->setSmooth(true);
+    // loads texture - slight damage
+    m_pig[1] = new sf::Texture;
+    if (!m_pig[1]->loadFromFile("Resources/BirdSprites/INGAME_BIRDS_1.png", sf::IntRect(441, 340, 86, 86)))
+    {
+        std::cout << "Failed to load m_pig[1]" << std::endl;
+    }
+    m_pig[1]->setSmooth(true);
+    // loads texture - half damage
+    m_pig[2] = new sf::Texture;
+    if (!m_pig[2]->loadFromFile("Resources/BirdSprites/INGAME_BIRDS_1.png", sf::IntRect(526, 424, 86, 86)))
+    {
+        std::cout << "Failed to load m_pig[2]" << std::endl;
+    }
+    m_pig[2]->setSmooth(true);
+    // loads texture - very damaged
+    m_pig[3] = m_pig[2];
+
+    
 }
 
 Textures::~Textures()

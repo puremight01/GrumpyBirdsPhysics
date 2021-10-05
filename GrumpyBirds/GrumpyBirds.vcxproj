@@ -152,7 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp" />
-    <ClCompile Include="BlueBird.cpp" />
+    <ClCompile Include="YellowBird.cpp" />
     <ClCompile Include="ContactListener.cpp" />
     <ClCompile Include="Destructable.cpp" />
     <ClCompile Include="ExampleScene.cpp" />
@@ -167,7 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bird.h" />
-    <ClInclude Include="BlueBird.h" />
+    <ClInclude Include="YellowBird.h" />
     <ClInclude Include="ContactListener.h" />
     <ClInclude Include="Destructable.h" />
     <ClInclude Include="ExampleScene.h" />

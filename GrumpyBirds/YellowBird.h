@@ -1,10 +1,10 @@
 #pragma once
 #include "Bird.h"
-class BlueBird :
+class YellowBird :
     public Bird
 {
 public:
-    BlueBird(sf::Drawable* Renderable, b2Body* Body, b2World& World, b2Body* SlingShotBody);
+    YellowBird(sf::Drawable* Renderable, b2Body* Body, b2World& World, b2Body* SlingShotBody);
 
 private:
     //holds the logic unique to this bird 

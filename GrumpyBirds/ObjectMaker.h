@@ -7,6 +7,7 @@
 
 enum class ObjectType { Cube, Triangle, Circle};
 enum class ObjectMat { Glass, Wood, Stone };
+enum class BirdShape {Circle, Triangle };
 
 class ObjectMaker
 {
@@ -19,7 +20,9 @@ public:
 
 	// create and returns a pointer to a static game object - Naomi Wiggins
 	GameObject* StaticObj(ObjectType type, sf::Texture* texture, Scene* scene, sf::Vector2f position, sf::Vector2f size);
-	GameObject* BirdObj();
+
+	// creates and returns a pointer to a bird object - Naomi Wiggins
+	GameObject* BirdObj(BirdShape shape, Scene* scene, sf::Vector2f position, GameObject* SlingShotObject);
 	GameObject* EnemyObject();
 
 

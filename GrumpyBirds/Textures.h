@@ -40,6 +40,9 @@ public:
 	//created by Jacob Sullivan
 	sf::Texture* RedGrumpyBird1;
 
+	// yellow / triangle grumpy bird texture - Naomi Wiggins
+	sf::Texture* YellowGrumpyBird;
+
 	//Slingshot texture
 	//created by Jacob Sullivan
 	sf::Texture* SlingShot;

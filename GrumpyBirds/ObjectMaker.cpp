@@ -150,7 +150,7 @@ GameObject* ObjectMaker::StaticObj(ObjectType type, sf::Texture* texture, Scene*
 		objBody->CreateFixture(&objFixtureDef);
 		objBody->SetAngularVelocity(0.f);
 
-		return new GameObject(objSprite, objBody);
+		return(new GameObject(objSprite, objBody));
 	}
 	case ObjectType::Triangle:
 	{
@@ -162,7 +162,7 @@ GameObject* ObjectMaker::StaticObj(ObjectType type, sf::Texture* texture, Scene*
 		objBody->CreateFixture(&objFixtureDef);
 		objBody->SetAngularVelocity(0.f);
 
-		return new GameObject(objSprite, objBody);
+		return(new GameObject(objSprite, objBody));
 	}
 	case ObjectType::Circle:
 	{
@@ -173,12 +173,66 @@ GameObject* ObjectMaker::StaticObj(ObjectType type, sf::Texture* texture, Scene*
 		objBody->CreateFixture(&objFixtureDef);
 		objBody->SetAngularVelocity(0.f);
 
-		return new GameObject(objSprite, objBody);
+		return(new GameObject(objSprite, objBody));
 	}
 	default:
 	{
 		scene->World->DestroyBody(objBody);
-		return nullptr;
+		return(nullptr);
+	}
+	}
+}
+
+
+GameObject* ObjectMaker::BirdObj(BirdShape shape, Scene* scene, sf::Vector2f position, GameObject* SlingShotObject)
+{
+	// drawable / display general setup
+	auto birdSprite = new sf::RectangleShape;
+	dynamic_cast<sf::RectangleShape*>(birdSprite)->setSize(sf::Vector2f(50.f, 50.f));
+
+	// physics body general setup
+	b2BodyDef birdBodyDef;
+	birdBodyDef.position = b2Vec2(position.x / 30.f, position.y / 30.f);
+	birdBodyDef.type = b2_dynamicBody;
+	auto birdBody = scene->World->CreateBody(&birdBodyDef);
+	birdBody->SetAngularVelocity(0.f);
+
+	b2FixtureDef birdFixtureDef;
+	birdFixtureDef.density = 1.f;
+
+	switch (shape)
+	{
+	case BirdShape::Circle:
+	{
+		// drawable shape setup
+		dynamic_cast<sf::RectangleShape*>(birdSprite)->setTexture(Textures::GetTextures()->RedGrumpyBird1);
+
+		// physics body shape setup
+		b2CircleShape birdBodyShape;
+		birdBodyShape.m_radius = 25.f / 30.f;
+		birdFixtureDef.shape = &birdBodyShape;
+		birdBody->CreateFixture(&birdFixtureDef);
+
+		return(new Bird(birdSprite, birdBody, *scene->World, SlingShotObject->GetPhysicsBody()));
+	}
+	case BirdShape::Triangle:
+	{
+		// drawable shape setup
+		dynamic_cast<sf::RectangleShape*>(birdSprite)->setTexture(Textures::GetTextures()->YellowGrumpyBird);
+
+		// physics body shape setup
+		b2PolygonShape birdBodyShape;
+		b2Vec2 points[3] = { b2Vec2(-25.f / 30.f, 25.f / 30.f), b2Vec2(0.f, -25.f / 30.f), b2Vec2(25.f / 30.f, 25.f / 30.f) };
+		birdBodyShape.Set(points, 3);
+		birdFixtureDef.shape = &birdBodyShape;
+		birdBody->CreateFixture(&birdFixtureDef);
+
+		return(new Bird(birdSprite, birdBody, *scene->World, SlingShotObject->GetPhysicsBody()));
+	}
+	default:
+	{
+		scene->World->DestroyBody(birdBody);
+		return(nullptr);
 	}
 	}
 }

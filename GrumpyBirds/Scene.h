@@ -26,7 +26,7 @@ public:
 
 	//updates all of the scene objects
 	//created by Jacob Sullivan
-	void Update();
+	virtual void Update();
 
 	//renders all of the scene objects
 	//created by Jacob Sullivan

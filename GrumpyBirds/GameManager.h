@@ -39,5 +39,11 @@ private:
     //created by Jacob Sullivan
     Scene* CurrentScene;
 
+    //Gets the next scene
+   //created by Jacob Sullivan
+    Scene* NextScene();
+
+    int SceneNumber;
+
 };
 #endif // !__GameManager__

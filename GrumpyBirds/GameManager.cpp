@@ -1,3 +1,4 @@
+#include "Pig.h"
 #include "GameManager.h"
 
 GameManager::GameManager()
@@ -43,7 +44,7 @@ Scene* GameManager::NextScene()
 	switch (SceneNumber)
 	{
 	case 1:
-		return (Scene*)new ExampleScene();
+		return (Scene*)new Level1();//ExampleScene();
 	case 2:
 		return (Scene*)new ExampleScene();
 	default:

@@ -1,3 +1,4 @@
+#include "Pig.h"
 #include "Scene.h"
 
 Scene::Scene()

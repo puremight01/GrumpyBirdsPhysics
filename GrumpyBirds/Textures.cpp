@@ -350,6 +350,22 @@ Textures::Textures()
         std::cout << "Failed to load m_crate[2]" << std::endl;
     }
     m_crate[2]->setSmooth(true);  
+    
+    // loads texture sky
+    Sky = new sf::Texture;
+    if (!Sky->loadFromFile("Resources/MapSprites/THEME_04_THEME_4_1.png", sf::IntRect(0,0, 486, 273)))
+    {
+        std::cout << "Failed to load Sky" << std::endl;
+    }
+    Sky->setSmooth(true);
+
+    // loads texture ground
+    Ground = new sf::Texture;
+    if (!Ground->loadFromFile("Resources/MapSprites/THEME_04_THEME_4_1.png", sf::IntRect(0, 274, 486, 204)))
+    {
+        std::cout << "Failed to load Ground" << std::endl;
+    }
+    Ground->setSmooth(true);
 }
 
 Textures::~Textures()

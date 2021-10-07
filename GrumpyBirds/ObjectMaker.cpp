@@ -115,11 +115,7 @@ GameObject* ObjectMaker::DesObj(ObjectType type, ObjectMat mat, Scene* scene, sf
 	default:
 
 		return nullptr;
-
-    
 	}
-
-
 }
 
 //template<typename ObjSprite>

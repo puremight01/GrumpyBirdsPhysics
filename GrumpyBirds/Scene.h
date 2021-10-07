@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef __Scene__
 #define __Scene__
 

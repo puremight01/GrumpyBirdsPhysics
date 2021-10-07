@@ -46,7 +46,7 @@ Scene* GameManager::NextScene()
 	case 1:
 		return (Scene*)new Level1();//ExampleScene();
 	case 2:
-		return (Scene*)new ExampleScene();
+		return (Scene*)new LevelTwo();
 	default:
 		break;
 	}

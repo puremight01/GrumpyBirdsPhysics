@@ -314,7 +314,42 @@ Textures::Textures()
     // loads texture - very damaged
     m_pig[3] = m_pig[2];
 
-    
+    // loads the boulder textures
+    m_boulder[0] = new sf::Texture;
+    if (!m_boulder[0]->loadFromFile("Resources/BirdSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_MISC_1.png", sf::IntRect(130, 840, 128, 128)))
+    {
+        std::cout << "Failed to load m_boulder[0]" << std::endl;
+    }
+    m_boulder[0]->setSmooth(true);
+
+    m_boulder[1] = new sf::Texture;
+    if (!m_boulder[1]->loadFromFile("Resources/BirdSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_MISC_1.png", sf::IntRect(130, 585, 129, 124)))
+    {
+        std::cout << "Failed to load m_boulder[1]" << std::endl;
+    }
+    m_boulder[1]->setSmooth(true);
+
+    // loads the crate textures
+    m_crate[0] = new sf::Texture;
+    if (!m_crate[0]->loadFromFile("Resources/BirdSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_MISC_1.png", sf::IntRect(133, 454, 126, 128)))
+    {
+        std::cout << "Failed to load m_crate[0]" << std::endl;
+    }
+    m_crate[0]->setSmooth(true);
+
+    m_crate[1] = new sf::Texture;
+    if (!m_crate[1]->loadFromFile("Resources/BirdSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_MISC_1.png", sf::IntRect(459, 681, 84, 83)))
+    {
+        std::cout << "Failed to load m_crate[1]" << std::endl;
+    }
+    m_crate[1]->setSmooth(true);
+
+    m_crate[2] = new sf::Texture;
+    if (!m_crate[2]->loadFromFile("Resources/BirdSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_MISC_1.png", sf::IntRect(308, 882, 125, 82)))
+    {
+        std::cout << "Failed to load m_crate[2]" << std::endl;
+    }
+    m_crate[2]->setSmooth(true);  
 }
 
 Textures::~Textures()

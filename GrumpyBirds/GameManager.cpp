@@ -43,7 +43,7 @@ Scene* GameManager::NextScene()
 	switch (SceneNumber)
 	{
 	case 1:
-		return (Scene*)new ExampleScene();
+		return (Scene*)new LevelTwo();
 	case 2:
 		return (Scene*)new ExampleScene();
 	default:

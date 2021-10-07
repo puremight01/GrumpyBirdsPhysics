@@ -115,11 +115,7 @@ GameObject* ObjectMaker::DesObj(ObjectType type, ObjectMat mat, Scene* scene, sf
 	default:
 
 		return nullptr;
-
-    
 	}
-
-
 }
 
 
@@ -128,6 +124,7 @@ GameObject* ObjectMaker::StaticObj(ObjectType type, sf::Texture* texture, Scene*
 	// drawable / display setup
 	auto objSprite = new sf::RectangleShape;
 	dynamic_cast<sf::RectangleShape*>(objSprite)->setSize(size);
+	dynamic_cast<sf::RectangleShape*>(objSprite)->setOrigin(size/2.0f);
 	dynamic_cast<sf::RectangleShape*>(objSprite)->setTexture(texture);
 
 	// physics body general setup

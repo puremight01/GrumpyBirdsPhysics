@@ -4,6 +4,7 @@
 //includes needed in this class
 #include"Scene.h"
 #include"ExampleScene.h"
+#include"LevelTwo.h"
 
 //This is the game instance 
 //created by Jacob Sullivan

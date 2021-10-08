@@ -4,6 +4,7 @@
 //includes needed in this class
 #include"Scene.h"
 #include"ExampleScene.h"
+#include"Level1.h"
 #include"LevelTwo.h"
 
 //This is the game instance 

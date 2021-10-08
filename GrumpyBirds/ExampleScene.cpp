@@ -1,3 +1,4 @@
+#include "ObjectMaker.h"
 #include "Seesaw.h"
 #include "ExampleScene.h"
 

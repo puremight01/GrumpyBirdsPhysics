@@ -47,6 +47,9 @@ public:
 	// yellow / triangle grumpy bird texture - Naomi Wiggins
 	sf::Texture* YellowGrumpyBird;
 
+	sf::Texture* m_boulder[2];   // array of stone boulders used as static objects - Naomi Wiggins
+	sf::Texture* m_crate[3];     // array of wooden/metal crates used as static objects - Naomi Wiggins
+
 	//Slingshot texture
 	//created by Jacob Sullivan
 	sf::Texture* SlingShot;

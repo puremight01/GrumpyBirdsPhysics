@@ -27,6 +27,8 @@ Pig::Pig(sf::Drawable* Renderable, b2Body* Body, float _strength, float _health,
 	MyRenderable = Renderable;
 	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setTexture(m_textureArray[0]);
 
+	//std::cout << "mass = " << PhysicsBody->GetMass() << std::endl;
+
 	//increase pig count 
 	PigCount++;
 }

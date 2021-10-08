@@ -20,8 +20,8 @@ void Seesaw::Update()
 {
 	if (m_objectA == nullptr || m_objectB == nullptr)
 	{
-		m_ownerScene->AddObjectToDeleteList(m_objectA);
-		m_ownerScene->AddObjectToDeleteList(m_objectB);
+		//m_ownerScene->AddObjectToDeleteList(m_objectA);
+		//m_ownerScene->AddObjectToDeleteList(m_objectB);
 		m_ownerScene->AddObjectToDeleteList(this);
 	}
 

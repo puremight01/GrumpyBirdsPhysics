@@ -1,5 +1,5 @@
-#include "ObjectMaker.h"
 #include "Scene.h"
+#include "ObjectMaker.h"
 
 ObjectMaker::ObjectMaker()
 {
@@ -99,11 +99,17 @@ GameObject* ObjectMaker::DesObj(ObjectType type, ObjectMat mat, Scene* scene, sf
 		FixtureDef.shape = &Shape;
 		Body->CreateFixture(&FixtureDef);
 		Body->SetAngularVelocity(0.0f);
+
+		b2MassData massData;
+
+
 		switch (mat)
 		{
 		case ObjectMat::Glass:
 			return new Destructable(ObjImage, Body, 5.0f, 100.0f, Textures::GetTextures()->m_glassCube, scene);
 		case ObjectMat::Wood:
+			Body->GetMassData(&massData);
+			std::cout << "mass data: " << massData.center.x << ", " << massData.center.y << std::endl;
 			return new Destructable(ObjImage, Body, 10.0f, 100.0f, Textures::GetTextures()->m_woodCube, scene);
 		case ObjectMat::Stone:
 			return new Destructable(ObjImage, Body, 20.0f, 100.0f, Textures::GetTextures()->m_stoneCube, scene);
@@ -115,68 +121,6 @@ GameObject* ObjectMaker::DesObj(ObjectType type, ObjectMat mat, Scene* scene, sf
 	default:
 
 		return nullptr;
-	}
-}
-
-
-GameObject* ObjectMaker::StaticObj(ObjectType type, sf::Texture* texture, Scene* scene, sf::Vector2f position, sf::Vector2f size)
-{
-	// drawable / display setup
-	auto objSprite = new sf::RectangleShape;
-	dynamic_cast<sf::RectangleShape*>(objSprite)->setSize(size);
-	dynamic_cast<sf::RectangleShape*>(objSprite)->setOrigin(size/2.0f);
-	dynamic_cast<sf::RectangleShape*>(objSprite)->setTexture(texture);
-
-	// physics body general setup
-	b2BodyDef objBodyDef;
-	objBodyDef.position = b2Vec2(position.x / 30.f, position.y / 30.f);
-	objBodyDef.type = b2_staticBody;
-	auto objBody = scene->World->CreateBody(&objBodyDef);
-
-	b2FixtureDef objFixtureDef;
-	objFixtureDef.density = 0.f;
-
-	switch (type)
-	{
-	case ObjectType::Cube:
-	{
-		// physics body shape setup
-		b2PolygonShape objBodyShape;
-		objBodyShape.SetAsBox(size.x / 2.f / 30.f, size.y / 2.f / 30.f);
-		objFixtureDef.shape = &objBodyShape;
-		objBody->CreateFixture(&objFixtureDef);
-		objBody->SetAngularVelocity(0.f);
-
-		return(new GameObject(objSprite, objBody));
-	}
-	case ObjectType::Triangle:
-	{
-		// physics body shape setup
-		b2PolygonShape objBodyShape;
-		b2Vec2 points[3] = { b2Vec2(size.x / -2.f / 30.f, size.y / 2.f / 30.f), b2Vec2(0.f, size.y / -2.f / 30.f), b2Vec2(size.x / 2.f / 30.f, size.y / 2.f / 30.f) };
-		objBodyShape.Set(points, 3);
-		objFixtureDef.shape = &objBodyShape;
-		objBody->CreateFixture(&objFixtureDef);
-		objBody->SetAngularVelocity(0.f);
-
-		return(new GameObject(objSprite, objBody));
-	}
-	case ObjectType::Circle:
-	{
-		// physics body shape setup
-		b2CircleShape objBodyShape;
-		objBodyShape.m_radius = (size.x > size.y ? size.x / 2.f / 30.f : size.y / 2.f / 30.f);
-		objFixtureDef.shape = &objBodyShape;
-		objBody->CreateFixture(&objFixtureDef);
-		objBody->SetAngularVelocity(0.f);
-
-		return(new GameObject(objSprite, objBody));
-	}
-	default:
-	{
-		scene->World->DestroyBody(objBody);
-		return(nullptr);
-	}
 	}
 }
 
@@ -258,3 +202,20 @@ GameObject* ObjectMaker::PigObj(Scene* scene, sf::Vector2f position, sf::Vector2
 
 	return(new Pig(pigSprite, pigBody, strength, health, scene));
 }
+
+sf::RectangleShape ObjectMaker::CreateSprite(sf::Texture* sprite, sf::Vector2f size)
+{
+	sf::RectangleShape spriteShape(size);
+	spriteShape.setTexture(sprite);
+	spriteShape.setOrigin(size / 2.f);
+	return(spriteShape);
+}
+
+sf::RectangleShape ObjectMaker::CreateSprite(sf::Color sprite, sf::Vector2f size)
+{
+	sf::RectangleShape spriteShape(size);
+	spriteShape.setFillColor(sprite);
+	spriteShape.setOrigin(size / 2.f);
+	return(spriteShape);
+}
+

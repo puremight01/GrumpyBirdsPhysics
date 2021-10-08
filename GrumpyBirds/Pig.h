@@ -13,6 +13,8 @@ public:
     ~Pig();
 
     static int GetPigCount();
+
+    void Update();
 private:
     static int PigCount;
 };

@@ -45,3 +45,13 @@ int Pig::GetPigCount()
 	return PigCount;
 }
 
+void Pig::Update()
+{
+	Destructable::Update();
+	//if off the map
+	if (PhysicsBody->GetPosition().y > 30)
+	{
+		m_currentHealth = 0;
+	}
+}
+

@@ -59,4 +59,25 @@ LevelTwo::LevelTwo()
 	temp = SirMakeALot.PigObj(this, sf::Vector2f(1365, 535), sf::Vector2f(50, 50), 5, 25);
 	temp->GetPhysicsBody()->SetAngularDamping(10.0);
 	SceneObjects.push_back(temp);
+
+	//slingshot
+	temp = SirMakeALot.SlingshotObj(this, sf::Vector2f(175, 570), sf::Vector2f(100, 200));
+
+	//birds
+	auto bird = SirMakeALot.BirdObj(BirdShape::Circle, this, sf::Vector2f(175, 570), temp);
+	dynamic_cast<Bird*>(bird)->SetFiring(true);
+	SceneObjects.push_back(bird);
+	BirdsToFire.push(bird);
+
+	//birds
+	bird = SirMakeALot.BirdObj(BirdShape::Circle, this, sf::Vector2f(75, 725), temp);
+	SceneObjects.push_back(bird);
+	BirdsToFire.push(bird);
+
+	//birds
+	bird = SirMakeALot.BirdObj(BirdShape::Triangle, this, sf::Vector2f(15, 725), temp);
+	SceneObjects.push_back(bird);
+	BirdsToFire.push(bird);
+
+	SceneObjects.push_back(temp);
 }

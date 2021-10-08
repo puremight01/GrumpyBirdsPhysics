@@ -45,6 +45,8 @@ private:
    //created by Jacob Sullivan
     Scene* NextScene();
 
+    Scene* SameScene();
+
     int SceneNumber;
 
 };

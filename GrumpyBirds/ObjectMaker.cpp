@@ -99,17 +99,11 @@ GameObject* ObjectMaker::DesObj(ObjectType type, ObjectMat mat, Scene* scene, sf
 		FixtureDef.shape = &Shape;
 		Body->CreateFixture(&FixtureDef);
 		Body->SetAngularVelocity(0.0f);
-
-		b2MassData massData;
-
-
 		switch (mat)
 		{
 		case ObjectMat::Glass:
 			return new Destructable(ObjImage, Body, 5.0f, 100.0f, Textures::GetTextures()->m_glassCube, scene);
 		case ObjectMat::Wood:
-			Body->GetMassData(&massData);
-			std::cout << "mass data: " << massData.center.x << ", " << massData.center.y << std::endl;
 			return new Destructable(ObjImage, Body, 10.0f, 100.0f, Textures::GetTextures()->m_woodCube, scene);
 		case ObjectMat::Stone:
 			return new Destructable(ObjImage, Body, 20.0f, 100.0f, Textures::GetTextures()->m_stoneCube, scene);

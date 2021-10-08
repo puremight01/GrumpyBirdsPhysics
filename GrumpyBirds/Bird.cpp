@@ -61,6 +61,21 @@ void Bird::Update()
 			CreateMouseJoint((float)sf::Mouse::getPosition(*Globals::window).x / 30.0f, (float)sf::Mouse::getPosition(*Globals::window).y / 30.0f);
 			CreateSlingshotJoint();
 			PhysicsBody->GetPosition();
+
+			sf::CircleShape* LineProjection[5];
+			auto position = sf::Vector2f(SlingShotRef->GetPosition().x * 30, SlingShotRef->GetPosition().y * 30);
+			auto velocity = sf::Vector2f(SlingShotRef->GetPosition().x - PhysicsBody->GetPosition().x, SlingShotRef->GetPosition().y - PhysicsBody->GetPosition().y);
+			for (int i = 0; i < 10; i++)
+			{
+				Globals::lineProjection[i] = new sf::CircleShape();
+				velocity = velocity + sf::Vector2f(0, 0.03f);
+				position = position + velocity * 20.0f;
+				Globals::lineProjection[i]->setPosition(position);
+				Globals::lineProjection[i]->setRadius(10-i/2);
+				Globals::lineProjection[i]->setFillColor(sf::Color::White);
+				Globals::lineProjection[i]->setOutlineThickness(1);
+			}
+			
 		}
 		else if (MouseJoint != nullptr)
 		{

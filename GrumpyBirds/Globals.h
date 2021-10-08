@@ -13,6 +13,8 @@ public:
 	//the reference to the game window so we can get mouse position 
 	//created by Jacob Sullivan
 	static sf::RenderWindow* window;
+
+	static sf::CircleShape* lineProjection[10];
 };
 
 #endif // !__Globals__

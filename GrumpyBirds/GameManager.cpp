@@ -59,6 +59,7 @@ Scene* GameManager::NextScene()
 
 Scene* GameManager::SameScene()
 {
+	
 	switch (SceneNumber)
 	{
 	case 1:

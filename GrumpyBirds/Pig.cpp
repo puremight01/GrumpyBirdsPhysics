@@ -51,7 +51,7 @@ void Pig::Update()
 	//if off the map
 	if (PhysicsBody->GetPosition().y > 30)
 	{
-		m_currentHealth = 0;
+		m_currentHealth = -1;
 	}
 }
 

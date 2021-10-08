@@ -79,7 +79,7 @@ Level1::Level1()
 	SceneObjects.push_back(GameObjectCreator.PigObj(this, sf::Vector2f(1275, 725), sf::Vector2f(50, 50), 5, 20));
 
 	// sling shot
-	auto sling = GameObjectCreator.StaticObj(ObjectType::Cube, Textures::GetTextures()->SlingShot, this, sf::Vector2f(150, 350), sf::Vector2f(100, 200));
+	auto sling = GameObjectCreator.SlingshotObj(this, sf::Vector2f(120, 275), sf::Vector2f(100, 200));
 	SceneObjects.push_back(sling);
 	
 	// birds

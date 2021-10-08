@@ -162,7 +162,7 @@ GameObject* ObjectMaker::BirdObj(BirdShape shape, Scene* scene, sf::Vector2f pos
 		birdFixtureDef.shape = &birdBodyShape;
 		birdBody->CreateFixture(&birdFixtureDef);
 
-		return(new Bird(birdSprite, birdBody, *scene->World, SlingShotObject->GetPhysicsBody()));
+		return(new YellowBird(birdSprite, birdBody, *scene->World, SlingShotObject->GetPhysicsBody()));
 	}
 	default:
 	{
@@ -195,6 +195,30 @@ GameObject* ObjectMaker::PigObj(Scene* scene, sf::Vector2f position, sf::Vector2
 	pigBody->CreateFixture(&pigFixtureDef);
 
 	return(new Pig(pigSprite, pigBody, strength, health, scene));
+}
+
+GameObject* ObjectMaker::SlingshotObj(Scene* scene, sf::Vector2f position, sf::Vector2f size)
+{
+	//sling shot
+	sf::RectangleShape* Sprite = new sf::RectangleShape;
+	Sprite->setSize(size);
+	Sprite->setTexture(Textures::GetTextures()->SlingShot);
+	Sprite->setOrigin(sf::Vector2f(50.0f, 020.0f));
+	//slingshot physics
+	b2BodyDef BodyDef;
+	BodyDef.position = b2Vec2(position.x / 30.f, position.y / 30.f);
+	BodyDef.type = b2_staticBody;
+	b2Body* Body = scene->World->CreateBody(&BodyDef);
+
+	b2PolygonShape Shape;
+	Shape.SetAsBox((size.x / 2.f) / 30.f, (size.y / 2.f) / 30.f);
+	b2FixtureDef FixtureDef;
+	FixtureDef.density = 0.f;
+	FixtureDef.shape = &Shape;
+	FixtureDef.isSensor = true;
+	Body->CreateFixture(&FixtureDef);
+
+	return new GameObject(Sprite, Body);
 }
 
 sf::RectangleShape ObjectMaker::CreateSprite(sf::Texture* sprite, sf::Vector2f size)

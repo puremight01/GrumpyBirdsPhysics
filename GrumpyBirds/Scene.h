@@ -41,14 +41,16 @@ public:
 	//created by Jacob Sullivan
 	b2World* World;
 
+	//All of the birds you can use in this scene
+	//created by Jacob Sullivan 
+	std::queue<GameObject*> BirdsToFire;
+
 protected:
 	//All of the objects in this scene 
 	//created by Jacob Sullivan
 	std::list<GameObject*> SceneObjects;
 
-	//All of the birds you can use in this scene
-	//created by Jacob Sullivan 
-	std::queue<GameObject*> BirdsToFire;
+	
 
 	// vector of objects to be removed from scene - Naomi Wiggins
 	std::vector<GameObject*> m_objectsToDelete;

@@ -8,7 +8,7 @@ YellowBird::YellowBird(sf::Drawable* Renderable, b2Body* Body, b2World& World, b
 	SlingshotJoint = nullptr;
 	MyRenderable = Renderable;
 	PhysicsBody = Body;
-	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setTexture(Textures::GetTextures()->RedGrumpyBird1, true);
+	dynamic_cast<sf::RectangleShape*>(MyRenderable)->setTexture(Textures::GetTextures()->YellowGrumpyBird, true);
 }
 
 void YellowBird::ClickFunction()

@@ -21,6 +21,10 @@ void GameManager::Update()
 	{
 		SetScene(NextScene());
 	}
+	if (CurrentScene->BirdsToFire.size() == 0)
+	{
+		SetScene(SameScene());
+	}
 	//tells the current scene to update
 	CurrentScene->Update();
 }
@@ -44,13 +48,26 @@ Scene* GameManager::NextScene()
 	switch (SceneNumber)
 	{
 	case 1:
-		return (Scene*)new Level1();//ExampleScene();
+		return (Scene*)new Level1();
 	case 2:
+		SceneNumber = 0;
 		return (Scene*)new LevelTwo();
 	default:
 		break;
 	}
-	return nullptr;
+}
+
+Scene* GameManager::SameScene()
+{
+	switch (SceneNumber)
+	{
+	case 1:
+		return (Scene*)new Level1();
+	case 0:
+		return (Scene*)new LevelTwo();
+	default:
+		break;
+	}
 }
 
 //Scene* GameManager::GetScene()

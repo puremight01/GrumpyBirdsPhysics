@@ -22,7 +22,7 @@ public:
 	~Destructable() {};
 
 	// updates drawables and physics components - Naomi Wiggins
-	void Update();
+	virtual void Update();
 	// handles impact - Naomi Wiggins
 	void OnImpact(float _force);
 

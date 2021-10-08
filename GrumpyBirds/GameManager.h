@@ -42,9 +42,15 @@ private:
     Scene* CurrentScene;
 
     //Gets the next scene
-   //created by Jacob Sullivan
+    //created by Jacob Sullivan
     Scene* NextScene();
 
+    //Gets a new copy of current
+    //created by Jacob Sullivan
+    Scene* SameScene();
+
+    //what scene it is 
+    //created by Jacob Sullivan
     int SceneNumber;
 
 };

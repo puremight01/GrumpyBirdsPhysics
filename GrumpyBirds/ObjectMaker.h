@@ -36,6 +36,10 @@ public:
 
 		b2FixtureDef objFixtureDef;
 		objFixtureDef.density = 0.f;
+		if (sprite == Textures::GetTextures()->SlingShot)
+		{
+			objFixtureDef.isSensor = true;
+		}
 
 		switch (type)
 		{

@@ -36,12 +36,12 @@ Level1::Level1()
 	//SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Cube, ObjectMat::Stone, this, sf::Vector2f(375, 525), sf::Vector2f(350, 50)));
 	
 	// first building block
-	SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Cube, ObjectMat::Stone, this, sf::Vector2f(780, 630), sf::Vector2f(40, 240)));
+	SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Cube, ObjectMat::Stone, this, sf::Vector2f(763, 630), sf::Vector2f(30, 240)));
 	SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Cube, ObjectMat::Glass, this, sf::Vector2f(1070, 630), sf::Vector2f(60, 240)));
 	SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Cube, ObjectMat::Wood, this, sf::Vector2f(925, 480), sf::Vector2f(350, 60)));
-	SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Triangle, ObjectMat::Glass, this, sf::Vector2f(867, 715), sf::Vector2f(114, 70)));
-	SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Triangle, ObjectMat::Glass, this, sf::Vector2f(983, 715), sf::Vector2f(114, 70)));
-	SceneObjects.push_back(GameObjectCreator.StaticObj(ObjectType::Cube, Textures::GetTextures()->m_crate[0], this, sf::Vector2f(925, 660), sf::Vector2f(230, 40)));
+	//SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Triangle, ObjectMat::Glass, this, sf::Vector2f(867, 715), sf::Vector2f(114, 70)));
+	//SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Triangle, ObjectMat::Glass, this, sf::Vector2f(983, 715), sf::Vector2f(114, 70)));
+	SceneObjects.push_back(GameObjectCreator.StaticObj(ObjectType::Cube, Textures::GetTextures()->m_crate[0], this, sf::Vector2f(915, 660), sf::Vector2f(260, 40)));
 
 	SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Cube, ObjectMat::Stone, this, sf::Vector2f(852, 423), sf::Vector2f(54, 54)));
 	SceneObjects.push_back(GameObjectCreator.DesObj(ObjectType::Cube, ObjectMat::Glass, this, sf::Vector2f(998, 423), sf::Vector2f(54, 54)));
@@ -52,7 +52,7 @@ Level1::Level1()
 	// revolute joint 1
 	auto s1 = GameObjectCreator.StaticObj(ObjectType::Cube, Textures::GetTextures()->m_crate[2], this, sf::Vector2f(1312, 660), sf::Vector2f(20, 20));
 	SceneObjects.push_back(s1);
-	auto s2 = GameObjectCreator.DesObj(ObjectType::Cube, ObjectMat::Stone, this, sf::Vector2f(1312, 535), sf::Vector2f(20, 400));
+	auto s2 = GameObjectCreator.DesObj(ObjectType::Cube, ObjectMat::Stone, this, sf::Vector2f(1312, 535), sf::Vector2f(15, 400));
 	SceneObjects.push_back(s2);
 	auto seesawObj1 = new Seesaw(s1, s2, b2Vec2(1312.f / 30.f, 660.f / 30.f), this);
 	auto seesawJoint1 = World->CreateJoint(seesawObj1->GetJointDef());

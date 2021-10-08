@@ -17,6 +17,8 @@ LevelTwo::LevelTwo()
 	auto temp = SirMakeALot.StaticObj(ObjectType::Cube, Textures::GetTextures()->Sky, this, sf::Vector2f(800, 450), sf::Vector2f(1616, 909));
 	temp->GetPhysicsBody()->SetEnabled(false);
 	SceneObjects.push_back(temp);
+
+	SceneObjects.push_back(SirMakeALot.StaticObj(ObjectType::Cube, Textures::GetTextures()->Sky, this, sf::Vector2f(1605, 450), sf::Vector2f(10, 909)));
 	
 	//Ground
 	SceneObjects.push_back(SirMakeALot.StaticObj(ObjectType::Cube, Textures::GetTextures()->Ground, this, sf::Vector2f(1364, 850), sf::Vector2f(476, 200)));

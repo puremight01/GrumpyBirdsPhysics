@@ -1,3 +1,4 @@
+#include "ObjectMaker.h"
 #include "LevelTwo.h"
 
 LevelTwo::LevelTwo()

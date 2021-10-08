@@ -316,7 +316,7 @@ Textures::Textures()
 
     // loads the boulder textures
     m_boulder[0] = new sf::Texture;
-    if (!m_boulder[0]->loadFromFile("Resources/BirdSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_MISC_1.png", sf::IntRect(130, 840, 128, 128)))
+    if (!m_boulder[0]->loadFromFile("Resources/BirdSprites/ANGRY_BIRDS_RIO_INGAME_BLOCKS_MISC_1.png", sf::IntRect(130, 842, 128, 124)))
     {
         std::cout << "Failed to load m_boulder[0]" << std::endl;
     }

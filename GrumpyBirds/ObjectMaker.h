@@ -27,8 +27,6 @@ public:
 	{
 		// drawable / display setup
 		auto objSprite = new sf::RectangleShape(CreateSprite(sprite, size));
-		//dynamic_cast<sf::RectangleShape*>(objSprite)->setSize(size);
-		//dynamic_cast<sf::RectangleShape*>(objSprite)->setTexture(texture);
 
 		// physics body general setup
 		b2BodyDef objBodyDef;
